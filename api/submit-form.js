@@ -6,17 +6,38 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, email, message } = req.body;
+    const { name, email, message, 'g-recaptcha-response': recaptchaToken } = req.body;
 
     // Basic validation
     if (!name || !email || !message) {
-      return res.status(400).json({ error: 'All fields are required' });
+      return res.status(400).json({ 
+        success: false,
+        error: 'All fields are required' 
+      });
     }
 
-    console.log('Environment variables:', {
-      user: process.env.GMAIL_USER ? 'Set' : 'Not set',
-      pass: process.env.GMAIL_PASS ? 'Set' : 'Not set'
-    });
+    // Verify reCAPTCHA
+    if (!recaptchaToken) {
+      return res.status(400).json({
+        success: false,
+        error: 'reCAPTCHA verification failed. Please try again.'
+      });
+    }
+
+    // Verify reCAPTCHA with Google
+    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+    const recaptchaUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${recaptchaToken}`;
+    
+    const recaptchaResponse = await fetch(recaptchaUrl, { method: 'POST' });
+    const recaptchaData = await recaptchaResponse.json();
+    
+    if (!recaptchaData.success) {
+      console.error('reCAPTCHA verification failed:', recaptchaData);
+      return res.status(400).json({ 
+        success: false,
+        error: 'reCAPTCHA verification failed. Please try again.'
+      });
+    }
 
     // Create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
@@ -27,21 +48,12 @@ export default async function handler(req, res) {
       }
     });
 
-    // Verify connection configuration
-    await transporter.verify(function(error, success) {
-      if (error) {
-        console.error('SMTP connection error:', error);
-        throw new Error('SMTP connection failed');
-      } else {
-        console.log('Server is ready to take our messages');
-      }
-    });
-
     // Send mail with defined transport object
     await transporter.sendMail({
       from: `"Portfolio Contact" <${process.env.GMAIL_USER}>`,
       to: process.env.GMAIL_USER, // Send to yourself
-      subject: `New message from ${name}`,
+      replyTo: `"${name}" <${email}>`,
+      subject: `New message from ${name} - Portfolio Contact`,
       text: `
         You received a new message from your portfolio:
         
@@ -54,9 +66,12 @@ export default async function handler(req, res) {
       html: `
         <h2>New message from your portfolio</h2>
         <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, '<br>')}</p>
+        <br>
+        <p>---</p>
+        <p>This message was sent from your portfolio contact form.</p>
       `
     });
 

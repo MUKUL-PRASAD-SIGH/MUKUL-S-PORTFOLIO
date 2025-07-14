@@ -433,10 +433,17 @@
     <section id="contact" class="contact">
         <h2 class="section-title" data-aos="fade-up">Contact Me</h2>
         <div class="contact-form">
-            <form id="contactForm" data-aos="fade-up" action="/api/submit-form" method="POST">
+            <!-- Add reCAPTCHA script -->
+            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+            
+            <form id="contactForm" data-aos="fade-up" onsubmit="return handleSubmit(event)">
                 <input type="text" id="name" name="name" placeholder="Enter your name..." required>
                 <input type="email" id="email" name="email" placeholder="Enter your email..." required>
                 <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+                
+                <!-- reCAPTCHA Widget -->
+                <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+                
                 <button type="submit" id="submitBtn">
                     <span class="btn-text">Send Message</span>
                     <div class="spinner hidden"></div>

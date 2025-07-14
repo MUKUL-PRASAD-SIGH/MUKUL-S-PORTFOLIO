@@ -1225,7 +1225,15 @@ section {
     transform: translateX(5px);
 }
 
-/* Contact Form Styles */
+/* reCAPTCHA */
+.g-recaptcha {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    min-height: 78px; /* Prevent layout shift when loading */
+}
+
+/* Contact Form */
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
