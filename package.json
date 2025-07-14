@@ -8,7 +8,8 @@
     "build": "echo 'No build step required for static site'"
   },
   "dependencies": {
-    "@vercel/node": "^2.0.0"
+    "@vercel/node": "^2.0.0",
+    "nodemailer": "^6.9.5"
   },
   "devDependencies": {
     "live-server": "^1.2.2"
