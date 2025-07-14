@@ -1,0 +1,16 @@
+{
+  "name": "cyberpunk-portfolio",
+  "version": "1.0.0",
+  "description": "A modern cyberpunk portfolio website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server",
+    "build": "echo 'No build step required for static site'"
+  },
+  "dependencies": {
+    "@vercel/node": "^2.0.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

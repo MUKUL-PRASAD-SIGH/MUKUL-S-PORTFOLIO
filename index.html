@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mukul Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+    <div class="glitch-overlay"></div>
+    <div class="neon-particles"></div>
+    
+    <nav class="navbar">
+        <div class="nav-content">
+            <h1 class="glitch-text">Mukul Prasad</h1>
+            <ul class="nav-links">
+                <li><a href="#home" class="glitch-link">Home</a></li>
+                <li><a href="#about" class="glitch-link">About</a></li>
+                <li><a href="#skills" class="glitch-link">Skills</a></li>
+                <li><a href="#projects" class="glitch-link">Projects</a></li>
+                <li><a href="#contact" class="glitch-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="ai-overlay"></div>
+        <div class="neural-network"></div>
+        <div class="hero-container">
+            <div class="ai-terminal">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-btn red"></span>
+                        <span class="terminal-btn yellow"></span>
+                        <span class="terminal-btn green"></span>
+                    </div>
+                    <div class="terminal-title">mukul@portfolio:~</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="typing-text">
+                        <span class="prompt">$</span> Initializing AI systems...<br>
+                        <span class="prompt">$</span> Loading neural networks...<br>
+                        <span class="prompt">$</span> <span class="typing">Hello, I'm Mukul Prasad</span><br>
+                    </div>
+                    <div class="ai-cta">
+                        <button id="unlockBtn" class="ai-button">
+                            <span>Explore My Work</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ai-elements">
+                <div class="ai-element" data-tooltip="Machine Learning">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="ai-element" data-tooltip="Neural Networks">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <div class="ai-element" data-tooltip="Data Science">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="ai-element" data-tooltip="AI Research">
+                    <i class="fas fa-microscope"></i>
+                </div>
+            </div>
+        </div>
+        <!-- 3D Lab Container -->
+        <div id="lab-container"></div>
+        
+        <div class="scroll-hint">
+            <span>Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+    
+    <div id="contentWrapper" class="content-wrapper">
+
+    <section id="about" class="about">
+        <h2 class="section-title" data-aos="fade-up">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <div class="about-intro" data-aos="fade-right">
+                    <div class="about-badge">🤖 AI/ML Enthusiast</div>
+                    <p>🎓 I am a passionate Computer Science & Engineering student specializing in AI/ML at Ramaiah Institute of Technology. With a strong foundation in programming and problem-solving, I'm dedicated to leveraging technology to create meaningful solutions.</p>
+                </div>
+                
+                <div class="about-role" data-aos="fade-left">
+                    <div class="role-badge">🌟 Core Member</div>
+                    <p>☁️ Currently, I serve as a Core Member of the AWS Club at MSRIT, where I actively contribute to cloud computing initiatives and mentor fellow students. My academic journey has equipped me with a solid understanding of artificial intelligence, machine learning, and data engineering principles.</p>
+                </div>
+                
+                <div class="skills-section" data-aos="fade-up">
+                    <h3 class="section-title">🚀 Technical Expertise</h3>
+                    <div class="skills-container">
+                        <!-- AI/ML Development -->
+                        <div class="skill-category" data-category="AI/ML">
+                            <div class="category-header">
+                                <i class="fas fa-brain"></i>
+                                <h4>🤖 AI/ML Development</h4>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <div class="skill-icon">🤖</div>
+                                    <div class="skill-info">
+                                        <h5>AI Solutions</h5>
+                                        <p>Creating intelligent systems for Syncity and HealthCare Dashboard</p>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-icon">📊</div>
+                                    <div class="skill-info">
+                                        <h5>Machine Learning</h5>
+                                        <p>Implementing advanced models and data pipelines</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Cloud Computing -->
+                        <div class="skill-category" data-category="Cloud">
+                            <div class="category-header">
+                                <i class="fas fa-cloud"></i>
+                                <h4>☁️ Cloud Computing</h4>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <div class="skill-icon">☁️</div>
+                                    <div class="skill-info">
+                                        <h5>AWS Services</h5>
+                                        <p>Working with cloud infrastructure and services</p>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-icon">⚡</div>
+                                    <div class="skill-info">
+                                        <h5>Scalability</h5>
+                                        <p>Building high-performance cloud applications</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Full Stack Development -->
+                        <div class="skill-category" data-category="Development">
+                            <div class="category-header">
+                                <i class="fas fa-code"></i>
+                                <h4>💻 Full Stack Development</h4>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <div class="skill-icon">🌐</div>
+                                    <div class="skill-info">
+                                        <h5>Web Development</h5>
+                                        <p>Building modern web applications with latest technologies</p>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-icon">📱</div>
+                                    <div class="skill-info">
+                                        <h5>UI/UX</h5>
+                                        <p>Crafting responsive and user-friendly interfaces</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Data Structures & Algorithms -->
+                        <div class="skill-category" data-category="DSA">
+                            <div class="category-header">
+                                <i class="fas fa-code-branch"></i>
+                                <h4>🔧 Data Structures & Algorithms</h4>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <div class="skill-icon">💡</div>
+                                    <div class="skill-info">
+                                        <h5>Algorithm Analysis</h5>
+                                        <p>Mastering time and space complexity analysis</p>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-icon">🔄</div>
+                                    <div class="skill-info">
+                                        <h5>Data Structures</h5>
+                                        <p>Implementing and optimizing data structures</p>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-icon">🎯</div>
+                                    <div class="skill-info">
+                                        <h5>Problem Solving</h5>
+                                        <p>Solving complex problems with efficient algorithms</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Ethical Hacking -->
+                        <div class="skill-category" data-category="Hacking">
+                            <div class="category-header">
+                                <i class="fas fa-shield-alt"></i>
+                                <h4>🛡️ Ethical Hacking</h4>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <div class="skill-icon">🔒</div>
+                                    <div class="skill-info">
+                                        <h5>Penetration Testing</h5>
+                                        <p>Identifying and exploiting security vulnerabilities</p>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-icon">🎯</div>
+                                    <div class="skill-info">
+                                        <h5>Network Security</h5>
+                                        <p>Securing networks and systems from threats</p>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-icon">🔍</div>
+                                    <div class="skill-info">
+                                        <h5>Cybersecurity</h5>
+                                        <p>Implementing security best practices</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-mission" data-aos="fade-up">
+                    <div class="mission-badge">🎯 Mission</div>
+                    <p>💡 I am constantly seeking opportunities to learn and grow, and I'm excited to contribute my skills to innovative projects that make a positive impact. My goal is to bridge the gap between emerging technologies and real-world solutions. 🌟</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="skills" class="skills">
+        <h2 class="section-title" data-aos="fade-up">Skills</h2>
+        <div class="skills-container">
+            <div class="main-skill-category" data-aos="fade-up">
+                <div class="main-skill-header">
+                    <i class="fas fa-code"></i>
+                    <h3>Programming & Development</h3>
+                </div>
+                <div class="skill-subcategories">
+                    <div class="skill-tag">Python</div>
+                    <div class="skill-tag">Java</div>
+                    <div class="skill-tag">C++</div>
+                    <div class="skill-tag">TypeScript</div>
+                    <div class="skill-tag">Node.js</div>
+                    <div class="skill-tag">Flask</div>
+                    <div class="skill-tag">GenAI</div>
+                </div>
+            </div>
+
+            <div class="main-skill-category" data-aos="fade-up">
+                <div class="main-skill-header">
+                    <i class="fas fa-brain"></i>
+                    <h3>AI/ML & Data</h3>
+                </div>
+                <div class="skill-subcategories">
+                    <div class="skill-tag">Artificial Intelligence</div>
+                    <div class="skill-tag">Machine Learning</div>
+                    <div class="skill-tag">Data Analytics</div>
+                    <div class="skill-tag">Data Engineering</div>
+                    <div class="skill-tag">Data Visualization</div>
+                    <div class="skill-tag">Predictive Modeling</div>
+                    <div class="skill-tag">Statistical Analysis</div>
+                </div>
+            </div>
+
+            <div class="main-skill-category" data-aos="fade-up">
+                <div class="main-skill-header">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Cloud & Tools</h3>
+                </div>
+                <div class="skill-subcategories">
+                    <div class="skill-tag">Amazon Web Services (AWS)</div>
+                    <div class="skill-tag">Matplotlib</div>
+                    <div class="skill-tag">Pandas</div>
+                    <div class="skill-tag">TensorFlow</div>
+                    <div class="skill-tag">RESTful APIs</div>
+                    <div class="skill-tag">Git</div>
+                </div>
+            </div>
+
+            <div class="main-skill-category" data-aos="fade-up">
+                <div class="main-skill-header">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI/ML Specializations</h3>
+                </div>
+                <div class="skill-subcategories">
+                    <div class="skill-tag">AI/ML Frameworks</div>
+                    <div class="skill-tag">Natural Language Processing</div>
+                    <div class="skill-tag">Computer Vision</div>
+                    <div class="skill-tag">Neural Networks</div>
+                    
+                    <div class="skill-tag">Model Deployment</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="currently-learning">
+        <div class="learning-container">
+            <div class="learning-header">
+                <i class="fas fa-rocket"></i>
+                <h3>Currently Learning <span class="learning-date">(Update: 14/07/2025)</span></h3>
+            </div>
+            <div class="learning-tags">
+                <div class="learning-tag">
+                    <i class="fas fa-brain"></i>
+                    <span>Machine Learning</span>
+                </div>
+                <div class="learning-tag">
+                    <i class="fab fa-docker"></i>
+                    <span>Docker</span>
+                </div>
+                <div class="learning-tag">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>DSA</span>
+                </div>
+                <div class="learning-tag">
+                    <i class="fas fa-robot"></i>
+                    <span>Dlib</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2 class="section-title" data-aos="fade-up">Projects</h2>
+        <div class="projects-section" data-aos="fade-up">
+            <div class="projects-grid">
+                    <!-- Syncity -->
+                    <a href="https://github.com/MUKUL-PRASAD-SIGH/URBAN-PLANNING" target="_blank" class="project-item clickable">
+                        <div class="project-icon">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h4>Syncity</h4>
+                                <div class="project-links">
+                                    <span class="project-date"><i class="far fa-calendar-alt"></i> Apr 2025 - Present</span>
+                                    <span class="github-icon" title="View on GitHub">
+                                        <i class="fab fa-github"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="project-description">Urban planning and development simulation system that revolutionizes city management with AI-driven insights.</p>
+                            <div class="project-tags">
+                                <span>AI/ML</span>
+                                <span>Urban Planning</span>
+                                <span>Simulation</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- HealthCare Dashboard -->
+                    <a href="https://github.com/MUKUL-PRASAD-SIGH/HealthCare-System-Dashboard" target="_blank" class="project-item clickable">
+                        <div class="project-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h4>HealthCare Dashboard</h4>
+                                <div class="project-links">
+                                    <span class="project-date"><i class="far fa-calendar-alt"></i> Dec 2024 - Present</span>
+                                    <span class="github-icon" title="View on GitHub">
+                                        <i class="fab fa-github"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="project-description">A comprehensive healthcare analytics platform providing real-time insights into patient data and hospital metrics.</p>
+                            <div class="project-tags">
+                                <span>Data Visualization</span>
+                                <span>Healthcare</span>
+                                <span>Analytics</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- GlamGlow -->
+                    <a href="https://github.com/MUKUL-PRAD-SIGH/GlamGlow" target="_blank" class="project-item clickable">
+                        <div class="project-icon">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h4>GlamGlow</h4>
+                                <div class="project-links">
+                                    <span class="project-date"><i class="far fa-calendar-alt"></i> May 2025 - Present</span>
+                                    <span class="github-icon" title="View on GitHub">
+                                        <i class="fab fa-github"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="project-description">A design thinking initiative transforming the beauty retail experience through innovative digital solutions.</p>
+                            <div class="project-tags">
+                                <span>UI/UX</span>
+                                <span>E-commerce</span>
+                                <span>Design Thinking</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title" data-aos="fade-up">Contact Me</h2>
+        <div class="contact-form">
+            <form id="contactForm" data-aos="fade-up" action="/api/submit-form" method="POST">
+                <input type="text" id="name" name="name" placeholder="Enter your name..." required>
+                <input type="email" id="email" name="email" placeholder="Enter your email..." required>
+                <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+                <button type="submit" id="submitBtn">
+                    <span class="btn-text">Send Message</span>
+                    <div class="spinner hidden"></div>
+                </button>
+                <p id="form-message" class="form-message"></p>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/mukulprasad958" class="social-icon" data-aos="fade-up">
+                <i class="fab fa-github"></i>
+                <span>Github</span>
+            </a>
+            <a href="mailto:mukulprasad958@gmail.com" class="social-icon" data-aos="fade-up">
+                <i class="fas fa-envelope"></i>
+                <span>Email</span>
+            </a>
+            <a href="tel:+919977026809" class="social-icon" data-aos="fade-up">
+                <i class="fas fa-phone"></i>
+                <span>Call</span>
+            </a>
+        </div>
+        <p data-aos="fade-up">&copy; 2025 Mukul Prasad. All rights reserved.</p>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <!-- Lab Model -->
+    <script src="js/labModel.js"></script>
+    
+    <!-- Firebase Configuration -->
+    <script src="firebase-config.js"></script>
+    
+    <!-- Contact Form Handler -->
+    <script src="contact-handler.js"></script>
+    
+    <!-- Main Script -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
