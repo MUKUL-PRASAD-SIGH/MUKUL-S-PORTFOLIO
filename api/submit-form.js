@@ -13,12 +13,27 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'All fields are required' });
     }
 
+    console.log('Environment variables:', {
+      user: process.env.GMAIL_USER ? 'Set' : 'Not set',
+      pass: process.env.GMAIL_PASS ? 'Set' : 'Not set'
+    });
+
     // Create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
         user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_PASS
+      }
+    });
+
+    // Verify connection configuration
+    await transporter.verify(function(error, success) {
+      if (error) {
+        console.error('SMTP connection error:', error);
+        throw new Error('SMTP connection failed');
+      } else {
+        console.log('Server is ready to take our messages');
       }
     });
 
