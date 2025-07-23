@@ -16,27 +16,31 @@ export default async function handler(req, res) {
       });
     }
 
-    // Verify reCAPTCHA
-    if (!recaptchaToken) {
-      return res.status(400).json({
-        success: false,
-        error: 'reCAPTCHA verification failed. Please try again.'
-      });
-    }
+    // Skip reCAPTCHA verification in development
+    if (process.env.NODE_ENV !== 'development') {
+      if (!recaptchaToken || recaptchaToken === 'bypass-for-development') {
+        return res.status(400).json({
+          success: false,
+          error: 'reCAPTCHA verification failed. Please try again.'
+        });
+      }
 
-    // Verify reCAPTCHA with Google
-    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
-    const recaptchaUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${recaptchaToken}`;
-    
-    const recaptchaResponse = await fetch(recaptchaUrl, { method: 'POST' });
-    const recaptchaData = await recaptchaResponse.json();
-    
-    if (!recaptchaData.success) {
-      console.error('reCAPTCHA verification failed:', recaptchaData);
-      return res.status(400).json({ 
-        success: false,
-        error: 'reCAPTCHA verification failed. Please try again.'
-      });
+      // Verify reCAPTCHA with Google in production
+      const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+      const recaptchaUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${recaptchaToken}`;
+      
+      const recaptchaResponse = await fetch(recaptchaUrl, { method: 'POST' });
+      const recaptchaData = await recaptchaResponse.json();
+      
+      if (!recaptchaData.success) {
+        console.error('reCAPTCHA verification failed:', recaptchaData);
+        return res.status(400).json({ 
+          success: false,
+          error: 'reCAPTCHA verification failed. Please try again.'
+        });
+      }
+    } else {
+      console.log('Running in development mode - reCAPTCHA verification skipped');
     }
 
     // Create reusable transporter object using the default SMTP transport

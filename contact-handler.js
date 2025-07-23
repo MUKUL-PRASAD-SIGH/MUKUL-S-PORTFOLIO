@@ -14,14 +14,20 @@ async function handleSubmit(event) {
         
         // Get form data
         const formData = new FormData(contactForm);
-        const recaptchaResponse = grecaptcha.getResponse();
+        const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
         
-        if (!recaptchaResponse) {
-            throw new Error('Please complete the reCAPTCHA');
+        // Only require reCAPTCHA in production
+        if (!isLocalhost) {
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (!recaptchaResponse) {
+                throw new Error('Please complete the reCAPTCHA');
+            }
+            formData.append('g-recaptcha-response', recaptchaResponse);
+        } else {
+            // Add dummy reCAPTCHA for local development
+            formData.append('g-recaptcha-response', 'bypass-for-development');
+            console.log('Running in development mode - reCAPTCHA bypassed');
         }
-        
-        // Add reCAPTCHA token to form data
-        formData.append('g-recaptcha-response', recaptchaResponse);
         
         // Convert FormData to object
         const data = Object.fromEntries(formData.entries());
