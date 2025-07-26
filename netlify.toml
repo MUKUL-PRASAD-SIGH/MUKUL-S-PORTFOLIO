@@ -10,6 +10,13 @@
   from = "/*"
   to = "/index.html"
   status = 200
+  force = false
+
+[[redirects]]
+  from = "/profile.png"
+  to = "/profile.png"
+  status = 200
+  force = false
 
 [build.environment]
   NODE_VERSION = "18"
