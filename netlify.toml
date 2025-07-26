@@ -6,17 +6,18 @@
   publish = "."
   port = 3000
 
+# Handle SPA routing - redirect all requests to index.html
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  force = false
 
+# Explicitly serve static files from the public directory
 [[redirects]]
-  from = "/profile.png"
-  to = "/profile.png"
+  from = "/public/*"
+  to = "/public/:splat"
   status = 200
-  force = false
+  force = true
 
 [build.environment]
   NODE_VERSION = "18"
