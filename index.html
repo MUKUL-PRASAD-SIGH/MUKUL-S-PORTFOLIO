@@ -28,6 +28,11 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        .recaptcha-container {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="glitch-overlay"></div>
@@ -454,22 +459,26 @@
     <section id="contact" class="contact">
         <h2 class="section-title" data-aos="fade-up">Contact Me</h2>
         <div class="contact-form">
-            <!-- Add reCAPTCHA script -->
-            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-            
-            <form id="contactForm" data-aos="fade-up" onsubmit="return handleSubmit(event)">
-                <input type="text" id="name" name="name" placeholder="Enter your name..." required>
-                <input type="email" id="email" name="email" placeholder="Enter your email..." required>
-                <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+            <form name="contact" method="POST" netlify data-netlify-recaptcha="true" data-aos="fade-up" action="/thank-you">
+                <input type="hidden" name="form-name" value="contact">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Enter your name..." required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Enter your email..." required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Type your message here..." required></textarea>
+                </div>
                 
-                <!-- reCAPTCHA Widget -->
-                <div class="g-recaptcha" data-sitekey="6LcyjJArAAAAAF6bhkW3it1PR3VwTWmk5R6m_k30"></div>
+                <!-- Netlify's reCAPTCHA -->
+                <div class="recaptcha-container">
+                    <div data-netlify-recaptcha="true"></div>
+                </div>
                 
-                <button type="submit" id="submitBtn">
+                <button type="submit" class="submit-btn">
                     <span class="btn-text">Send Message</span>
-                    <div class="spinner hidden"></div>
                 </button>
-                <p id="form-message" class="form-message"></p>
             </form>
         </div>
     </section>
