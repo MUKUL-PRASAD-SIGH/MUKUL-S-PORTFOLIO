@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initialize the 3D hacker lab scene
         init3DHackerLab();
         
-        // Contact Form Handler
+        // Contact Form Handler for Netlify Forms
         const contactForm = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
         const btnText = document.querySelector('.btn-text');
@@ -54,16 +54,40 @@ document.addEventListener('DOMContentLoaded', () => {
                         throw new Error('Please complete the reCAPTCHA verification');
                     }
                     
-                    // Get form data
-                    const formData = new FormData(contactForm);
-                    formData.append('g-recaptcha-response', recaptchaResponse);
+                    // Create hidden input for reCAPTCHA if it doesn't exist
+                    let recaptchaInput = contactForm.querySelector('input[name="g-recaptcha-response"]');
+                    if (!recaptchaInput) {
+                        recaptchaInput = document.createElement('input');
+                        recaptchaInput.type = 'hidden';
+                        recaptchaInput.name = 'g-recaptcha-response';
+                        contactForm.appendChild(recaptchaInput);
+                    }
+                    recaptchaInput.value = recaptchaResponse;
                     
-                    // Submit form
-                    const response = await fetch('/', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                        body: new URLSearchParams(formData).toString()
-                    });
+                    // Prepare form data
+                    const formData = new FormData(contactForm);
+                    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+                    
+                    let response;
+                    
+                    if (isLocalhost) {
+                        // For local testing - log form data and simulate success
+                        console.log('Form data (local test):', Object.fromEntries(formData));
+                        response = { 
+                            ok: true,
+                            text: () => Promise.resolve('Local test successful')
+                        };
+                        
+                        // Simulate network delay
+                        await new Promise(resolve => setTimeout(resolve, 1000));
+                    } else {
+                        // For production - submit to Netlify
+                        response = await fetch('/', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                            body: new URLSearchParams(formData).toString()
+                        });
+                    }
                     
                     if (response.ok) {
                         // Success
@@ -71,8 +95,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         formMessage.className = 'form-message success';
                         contactForm.reset();
                         grecaptcha.reset();
+                        
+                        // Redirect to thank you page if needed
+                        // window.location.href = '/thank-you.html';
                     } else {
-                        throw new Error('Network response was not ok');
+                        const errorData = await response.text();
+                        console.error('Form submission error:', errorData);
+                        throw new Error('There was an error sending your message. Please try again.');
                     }
                 } catch (error) {
                     console.error('Error:', error);
