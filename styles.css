@@ -84,14 +84,10 @@ section {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: #0a0c17;
-    color: #e0e0e0;
+    justify-content: space-between;
     position: relative;
-    overflow: hidden;
-    font-family: 'Inter', 'Segoe UI', sans-serif;
-    padding: 2rem;
-    z-index: 1;
+    z-index: 10;
+    gap: 2rem;
 }
 
 /* 3D Lab Container */
@@ -608,6 +604,8 @@ section {
     max-width: 600px;
     text-align: left;
     animation: fadeInUp 1s ease-out;
+    position: relative;
+    z-index: 20;
 }
 
 .hero-title {
@@ -637,6 +635,8 @@ section {
 .hero-buttons {
     display: flex;
     gap: 1.5rem;
+    position: relative;
+    z-index: 30;
 }
 
 .btn {
@@ -1938,4 +1938,34 @@ footer {
     100% {
         clip: rect(64px, 450px, 76px, 0);
     }
+}
+
+/* 3D Model Container */
+#computer-model {
+    width: 100%;
+    height: 400px;
+    margin: 2rem 0;
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+}
+
+#computer-model canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: auto;
+}
+
+/* Make sure the hero content stays above the 3D model */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Ensure all interactive elements in hero section are clickable */
+.hero-buttons .btn,
+.hero-buttons .btn-outline {
+    position: relative;
+    z-index: 3;
 }
