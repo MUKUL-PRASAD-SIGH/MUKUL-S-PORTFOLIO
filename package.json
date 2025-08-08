@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "dev": "live-server",
-    "build": "echo 'No build step required for static site'"
+    "build": "echo 'Building static site...' && copy index.html 404.html && echo 'Build complete!'"
   },
   "dependencies": {
     "@vercel/node": "^2.0.0",
