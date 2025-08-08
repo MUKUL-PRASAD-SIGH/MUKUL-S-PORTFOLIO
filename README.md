@@ -12,7 +12,7 @@ A modern, responsive portfolio website with a cyberpunk theme.
 
 ## Deployment
 
-This project is deployed on Vercel. You can view the live version at: [Vercel URL]
+This project is deployed on Netlify. You can view the live version at: mukulprasad.netlify.app
 
 ## Local Development
 
