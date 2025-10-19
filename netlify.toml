@@ -1,6 +1,5 @@
 [build]
   publish = "."
-  command = "npm run build"
 
 [dev]
   publish = "."
