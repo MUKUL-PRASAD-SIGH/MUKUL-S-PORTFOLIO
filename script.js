@@ -8,6 +8,586 @@ window.THREE = THREE;
 let scene, camera, renderer, hackerLabGroup, hackerFigure;
 let rgbLight1, rgbLight2, rgbLight3, mainLight;
 
+// Projects Data Structure and Configuration
+const projectsData = [
+    {
+        id: 'glamglow',
+        name: 'GlamGlow',
+        description: 'A smart beauty product recommender leveraging ML to personalize your glow-up journey.',
+        icon: 'fas fa-sparkles',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/GlamGlow',
+        technologies: ['Machine Learning', 'Python', 'Recommendation System', 'Flask', 'Scikit-learn'],
+        color: '#ff00ff',
+        featured: false
+    },
+    {
+        id: 'healthcare-dashboard',
+        name: 'HealthCare System Dashboard',
+        description: 'Empowering healthcare analytics and insights using real-time ML-powered dashboards.',
+        icon: 'fas fa-heartbeat',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/HealthCare-System-Dashboard',
+        technologies: ['Machine Learning', 'React', 'Node.js', 'MongoDB', 'Data Analytics'],
+        color: '#00ff88',
+        featured: false
+    },
+    {
+        id: 'urban-planning',
+        name: 'Urban Planning AI',
+        description: 'Optimizing city layouts and urban solutions through intelligent AI modeling.',
+        icon: 'fas fa-city',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/Urban-Planning-AI',
+        technologies: ['AI Modeling', 'Python', 'TensorFlow', 'Geospatial Analysis', 'Computer Vision'],
+        color: '#0099ff',
+        featured: false
+    },
+    {
+        id: 'clipbait',
+        name: 'Clipbait',
+        description: 'Effortlessly capture, analyze, and share trending video moments using machine learning and deep learning.',
+        icon: 'fas fa-video',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/Clipbait',
+        technologies: ['Deep Learning', 'Computer Vision', 'Python', 'OpenCV', 'Neural Networks'],
+        color: '#ff6600',
+        featured: false
+    },
+    {
+        id: 'donorconnect',
+        name: 'DonorConnect',
+        description: 'Harnesses ML & DL to intelligently match donors and recipients in real time for life-saving connections.',
+        icon: 'fas fa-hand-holding-heart',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/DonorConnect',
+        technologies: ['Machine Learning', 'Deep Learning', 'React', 'Node.js', 'Real-time Matching'],
+        color: '#ff0066',
+        featured: false
+    },
+    {
+        id: 'project-astraeus',
+        name: 'SIH 2025: 🚀 Project Astraeus — AI-powered Mission Control System',
+        description: 'Digital Twin simulation, Graph Neural Networks, and Reinforcement Learning to solve the "traffic jam in the sky" through satellite scheduling optimization.',
+        icon: 'fas fa-satellite',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/PROJECT_ENTANGLEMENT',
+        technologies: ['Graph Neural Networks', 'Reinforcement Learning', 'Digital Twin', 'Python', 'Satellite Systems'],
+        color: '#6600ff',
+        featured: true
+    },
+    {
+        id: 'hackathon-dashboard',
+        name: 'Hackathon Dashboard',
+        description: 'A real-time dashboard to streamline and manage hackathon events and submissions.',
+        icon: 'fas fa-code',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/Hackathon-Dashboard',
+        technologies: ['Real-time Analytics', 'React', 'Node.js', 'WebSocket', 'Event Management'],
+        color: '#00ccff',
+        featured: false
+    }
+];
+
+// Projects Configuration Object
+const projectsConfig = {
+    // Animation settings
+    animationDelay: 200, // ms between card animations
+    hoverTransition: '0.4s cubic-bezier(0.25, 0.8, 0.25, 1)',
+    glowIntensity: 0.6,
+    borderAnimationSpeed: '3s',
+    
+    // Visual effects
+    glassmorphism: {
+        background: 'rgba(0, 0, 0, 0.9)',
+        backdropFilter: 'blur(15px)',
+        borderRadius: '20px'
+    },
+    
+    // Grid layout settings
+    grid: {
+        desktop: 'repeat(3, 1fr)',
+        tablet: 'repeat(2, 1fr)',
+        mobile: '1fr',
+        gap: '2.5rem'
+    },
+    
+    // Hover effects
+    hover: {
+        translateY: '-10px',
+        scale: '1.02',
+        glowSpread: '20px',
+        shadowBlur: '30px'
+    },
+    
+    // Color schemes for different project types
+    colorSchemes: {
+        ml: ['#ff00ff', '#00ff88', '#0099ff'],
+        ai: ['#6600ff', '#ff6600', '#00ccff'],
+        web: ['#ff0066', '#00ccff', '#ff6600']
+    },
+    
+    // Icon mappings for project categories
+    iconMappings: {
+        beauty: 'fas fa-sparkles',
+        healthcare: 'fas fa-heartbeat',
+        urban: 'fas fa-city',
+        video: 'fas fa-video',
+        social: 'fas fa-hand-holding-heart',
+        space: 'fas fa-satellite',
+        events: 'fas fa-code'
+    }
+};
+
+// Function to create project card HTML and insert into DOM
+function generateProjectCards() {
+    const grid = document.getElementById('projects-grid');
+    if (!grid) return;
+
+    // Clear existing
+    grid.innerHTML = '';
+
+    projectsData.forEach((p, idx) => {
+        const card = document.createElement('a');
+        card.className = 'project-card';
+        card.setAttribute('role', 'listitem');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-label', `${p.name} - ${p.description}. Click to open GitHub repository in new tab.`);
+        card.dataset.github = p.githubUrl;
+        card.href = p.githubUrl;
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
+
+        // Set custom CSS properties for individual card theming
+        const color = p.color || '#00ccff';
+        card.style.setProperty('--card-color', color);
+        card.style.borderColor = color;
+        card.style.animationDelay = `${idx * 200}ms`; // Staggered entrance
+
+        card.innerHTML = `
+            <div class="project-header">
+                <div class="project-title">
+                    <div class="project-icon"><i class="${p.icon}" aria-hidden="true"></i></div>
+                    <h4 class="project-name">${p.name}</h4>
+                </div>
+                <div class="project-date" aria-label="${p.featured ? 'Featured project' : 'Regular project'}">${p.featured ? 'Featured' : ''}</div>
+            </div>
+            <div class="project-content">
+                <p class="project-description">${p.description}</p>
+                <div class="project-tags" role="group" aria-label="Technologies used">
+                    ${p.technologies.map(t => `<span class="project-tag" role="button" tabindex="-1" aria-label="Technology: ${t}">${t}</span>`).join('')}
+                </div>
+            </div>
+        `;
+
+        // Enhanced click and keyboard handler for accessibility
+        card.addEventListener('click', (e) => {
+            // Let anchor behave normally, but add analytics if needed
+            console.log(`Opening project: ${p.name}`);
+        });
+
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                window.open(p.githubUrl, '_blank', 'noopener,noreferrer');
+                console.log(`Keyboard navigation: Opening ${p.name}`);
+            }
+            // Add arrow key navigation between cards
+            else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                e.preventDefault();
+                const nextCard = card.nextElementSibling;
+                if (nextCard && nextCard.focus) nextCard.focus();
+            }
+            else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const prevCard = card.previousElementSibling;
+                if (prevCard && prevCard.focus) prevCard.focus();
+            }
+        });
+
+        // Enhanced focus/blur handlers
+        card.addEventListener('focus', () => {
+            card.classList.add('focus');
+            // Announce to screen readers
+            card.setAttribute('aria-describedby', `project-${idx}-description`);
+        });
+        
+        card.addEventListener('blur', () => {
+            card.classList.remove('focus');
+            card.removeAttribute('aria-describedby');
+        });
+
+        // Add screen reader description element
+        const description = document.createElement('div');
+        description.id = `project-${idx}-description`;
+        description.className = 'sr-only';
+        description.textContent = `Project ${idx + 1} of ${projectsData.length}. Technologies: ${p.technologies.join(', ')}. Press Enter or Space to open repository.`;
+        card.appendChild(description);
+
+        grid.appendChild(card);
+    });
+
+    // Initialize scroll-triggered entrance animations
+    initProjectEntranceAnimations();
+}
+
+// Screen reader only utility class
+const srOnlyStyle = document.createElement('style');
+srOnlyStyle.textContent = `
+    .sr-only {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+    }
+`;
+document.head.appendChild(srOnlyStyle);
+
+// Scroll-triggered staggered entrance animations with performance optimization
+function initProjectEntranceAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const projectObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const card = entry.target;
+                const delay = parseInt(card.style.animationDelay) || 0;
+                
+                // Use requestAnimationFrame for smoother animations
+                requestAnimationFrame(() => {
+                    setTimeout(() => {
+                        card.classList.add('animate');
+                        
+                        // Add entrance sound effect placeholder (could be enhanced with Web Audio API)
+                        console.log(`🎭 Project card animated: ${card.querySelector('.project-name')?.textContent}`);
+                        
+                        // Trigger additional entrance effects with GPU acceleration
+                        const icon = card.querySelector('.project-icon');
+                        if (icon) {
+                            icon.style.willChange = 'transform, opacity';
+                            icon.style.animation = 'iconEntrance 0.6s ease-out forwards';
+                            
+                            // Clean up will-change after animation
+                            setTimeout(() => {
+                                icon.style.willChange = 'auto';
+                            }, 600);
+                        }
+                        
+                        // Update robot visor message when projects become visible
+                        if (typeof updateVisorMessage === 'function') {
+                            const visibleProjects = document.querySelectorAll('.project-card.animate').length;
+                            if (visibleProjects === 1) {
+                                updateVisorMessage('PROJECTS\nLOADING...');
+                            } else if (visibleProjects === projectsData.length) {
+                                updateVisorMessage('ALL PROJECTS\nVISIBLE!');
+                            }
+                        }
+                    }, delay);
+                });
+                
+                // Unobserve after animation to improve performance
+                projectObserver.unobserve(card);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all project cards
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        // Enable GPU acceleration for entrance animations
+        card.style.willChange = 'transform, opacity';
+        projectObserver.observe(card);
+    });
+    
+    // Clean up will-change after all animations complete
+    setTimeout(() => {
+        projectCards.forEach(card => {
+            card.style.willChange = 'auto';
+        });
+    }, projectCards.length * 200 + 1000);
+    
+    // Fallback: Show all cards after 3 seconds if intersection observer fails
+    setTimeout(() => {
+        projectCards.forEach(card => {
+            if (!card.classList.contains('animate')) {
+                card.classList.add('animate');
+                console.log('🔄 Fallback: Showing project card');
+            }
+        });
+    }, 3000);
+    
+    // Store observer reference for cleanup if needed
+    if (!window.portfolioObservers) window.portfolioObservers = [];
+    window.portfolioObservers.push(projectObserver);
+}
+
+// Add icon entrance animation
+const iconAnimationStyle = document.createElement('style');
+iconAnimationStyle.textContent = `
+    @keyframes iconEntrance {
+        0% { 
+            transform: scale(0) rotate(-180deg); 
+            opacity: 0; 
+        }
+        50% { 
+            transform: scale(1.2) rotate(-90deg); 
+            opacity: 0.8; 
+        }
+        100% { 
+            transform: scale(1) rotate(0deg); 
+            opacity: 1; 
+        }
+    }
+    
+    /* Enhanced focus management */
+    .project-card:focus-within {
+        outline: 3px solid var(--card-color, #00ccff);
+        outline-offset: 4px;
+    }
+    
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+        .project-card {
+            border-width: 4px;
+            background: rgba(0, 0, 0, 0.98);
+        }
+        .project-card .project-name {
+            font-weight: 900;
+        }
+        .project-card .project-tag {
+            border-width: 3px;
+            font-weight: 600;
+        }
+    }
+`;
+document.head.appendChild(iconAnimationStyle);
+
+// Inject enhanced cyberpunk project CSS with animations and fallbacks
+const projectStyle = document.createElement('style');
+projectStyle.textContent = `
+    /* Enhanced cyberpunk project styling */
+    .projects-grid { 
+        gap: 2.5rem; 
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); 
+        padding: 2rem 0;
+    }
+    
+    .project-card { 
+        display: block; 
+        text-decoration: none; 
+        color: inherit; 
+        position: relative;
+        overflow: hidden;
+        border-radius: 20px;
+        border: 3px solid;
+        padding: 0;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all ${projectsConfig.hoverTransition}, opacity 0.8s ease, transform 0.8s ease;
+        
+        /* Enhanced glassmorphism background */
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(30, 0, 30, 0.7));
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        
+        /* Animated border gradient */
+        background-clip: padding-box;
+        border-image: linear-gradient(45deg, var(--card-color, #00ccff), transparent, var(--card-color, #00ccff)) 1;
+        animation: borderPulse 3s ease-in-out infinite;
+    }
+    
+    /* Fallback for browsers without backdrop-filter */
+    @supports not (backdrop-filter: blur(15px)) {
+        .project-card {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(30, 0, 30, 0.9));
+        }
+    }
+    
+    /* Animated border gradient keyframes */
+    @keyframes borderPulse {
+        0%, 100% { 
+            border-image: linear-gradient(45deg, var(--card-color, #00ccff), transparent, var(--card-color, #00ccff)) 1;
+            filter: drop-shadow(0 0 10px var(--card-color, #00ccff)); 
+        }
+        50% { 
+            border-image: linear-gradient(45deg, var(--card-color, #00ccff), var(--card-color, #00ccff), var(--card-color, #00ccff)) 1;
+            filter: drop-shadow(0 0 20px var(--card-color, #00ccff)); 
+        }
+    }
+    
+    /* Shimmer effect overlay */
+    .project-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        transition: left 0.6s ease;
+        z-index: 1;
+    }
+    
+    .project-card:hover::before, .project-card.focus::before {
+        left: 100%;
+    }
+    
+    /* Card entrance animation */
+    .project-card.animate {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .project-card .project-header { 
+        padding: 2rem; 
+        position: relative;
+        z-index: 2;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent);
+    }
+    
+    .project-card .project-title { 
+        display: flex; 
+        gap: 1.5rem; 
+        align-items: center; 
+        margin-bottom: 0.8rem;
+    }
+    
+    .project-card .project-icon { 
+        width: 60px; 
+        height: 60px; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        border-radius: 15px; 
+        font-size: 1.5rem;
+        position: relative;
+        
+        /* Neon glow effect */
+        background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+        border: 2px solid var(--card-color, #00ccff);
+        color: var(--card-color, #00ccff);
+        box-shadow: 0 0 20px rgba(0, 204, 255, 0.4);
+        
+        transition: all 0.3s ease;
+    }
+    
+    .project-card .project-name { 
+        font-size: 1.5rem; 
+        font-weight: 700;
+        color: var(--card-color, #00ccff);
+        text-shadow: 0 0 10px var(--card-color, #00ccff);
+        flex: 1;
+    }
+    
+    .project-card .project-date {
+        color: #aaaaaa;
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 0.4rem 0.8rem;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .project-card .project-content { 
+        padding: 2rem; 
+        position: relative;
+        z-index: 2;
+    }
+    
+    .project-card .project-description { 
+        color: #dddddd; 
+        margin-bottom: 1.5rem; 
+        line-height: 1.7;
+        font-size: 1rem;
+    }
+    
+    .project-card .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+    
+    .project-card .project-tag { 
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        border: 2px solid var(--card-color, #00ccff);
+        background: rgba(0, 204, 255, 0.1);
+        color: var(--card-color, #00ccff);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .project-card .project-tag:hover {
+        transform: scale(1.05);
+        background: rgba(0, 204, 255, 0.2);
+        box-shadow: 0 5px 15px rgba(0, 204, 255, 0.4);
+    }
+    
+    /* Enhanced hover and focus effects */
+    .project-card:hover, .project-card.focus { 
+        transform: translateY(-15px) scale(1.03);
+        box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8);
+        border-image: linear-gradient(45deg, var(--card-color, #00ccff), var(--card-color, #00ccff), var(--card-color, #00ccff)) 1;
+    }
+    
+    .project-card:hover .project-icon, .project-card.focus .project-icon {
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 0 30px var(--card-color, #00ccff);
+    }
+    
+    .project-card:hover .project-name, .project-card.focus .project-name {
+        text-shadow: 0 0 20px var(--card-color, #00ccff);
+    }
+    
+    /* Enhanced accessibility focus outline */
+    .project-card:focus-visible { 
+        outline: 3px solid var(--card-color, #00ccff);
+        outline-offset: 4px;
+        box-shadow: 0 0 0 6px rgba(0, 204, 255, 0.25);
+    }
+    
+    /* Prefers-reduced-motion support */
+    @media (prefers-reduced-motion: reduce) { 
+        .project-card, .project-card::before, .project-card .project-icon, .project-card .project-tag { 
+            transition: none !important; 
+            animation: none !important;
+        }
+        .project-card:hover, .project-card.focus {
+            transform: none !important;
+        }
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .projects-grid { 
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            padding: 1rem 0;
+        }
+        .project-card .project-header,
+        .project-card .project-content {
+            padding: 1.5rem;
+        }
+        .project-card .project-icon {
+            width: 48px;
+            height: 48px;
+            font-size: 1.2rem;
+        }
+        .project-card .project-name {
+            font-size: 1.3rem;
+        }
+    }
+`;
+document.head.appendChild(projectStyle);
+
 // Function to update robot visor message
 function updateVisorMessage(message) {
     if (hackerFigure && hackerFigure.userData && hackerFigure.userData.visor) {
@@ -28,6 +608,35 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
         // Initialize the 3D hacker lab scene
         init3DHackerLab();
+        
+        // Generate project cards into the DOM before other UI inits
+        try {
+            generateProjectCards();
+            console.log('✅ Project cards generated with cyberpunk styling and animations');
+        } catch (e) {
+            console.error('❌ Failed to generate project cards:', e);
+        }
+        
+        // Verify integration with existing portfolio systems
+        const projectsSection = document.getElementById('projects');
+        if (projectsSection) {
+            // Ensure projects section is properly integrated with navigation
+            const navLinks = document.querySelectorAll('.nav-links a[href="#projects"]');
+            navLinks.forEach(link => {
+                if (!link.hasAttribute('data-projects-ready')) {
+                    link.setAttribute('data-projects-ready', 'true');
+                    console.log('✅ Projects navigation integration verified');
+                }
+            });
+            
+            // Add projects section to existing scroll observers if any
+            const existingObservers = window.portfolioObservers || [];
+            existingObservers.forEach(observer => {
+                if (observer && typeof observer.observe === 'function') {
+                    observer.observe(projectsSection);
+                }
+            });
+        }
         
         // Contact Form Handler for Netlify Forms
         const contactForm = document.getElementById('contactForm');

@@ -1969,3 +1969,557 @@ footer {
     position: relative;
     z-index: 3;
 }
+
+/* Projects Showcase Section - New Implementation */
+.projects-showcase {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 0 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Project Card Base Styling with Enhanced Cyberpunk Aesthetics */
+.project-card {
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    /* Enhanced glassmorphism effect */
+    background: linear-gradient(135deg, 
+        rgba(0, 0, 0, 0.9) 0%, 
+        rgba(20, 20, 40, 0.85) 50%, 
+        rgba(0, 0, 0, 0.9) 100%);
+    /* Subtle inner glow */
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Enhanced Animated Gradient Border with Cyberpunk Colors */
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        #ff00ff, #00ffff, #ffff00, #ff0080, #80ff00, 
+        #00ff80, #8000ff, #ff8000, #0080ff, #ff00ff);
+    background-size: 400% 400%;
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    animation: borderGradient 3s linear infinite;
+    /* Enhanced glow effect */
+    filter: blur(0.5px);
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+@keyframes borderGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Enhanced Glassmorphism Overlay with Cyberpunk Effects */
+.project-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    z-index: -1;
+    transition: all 0.4s ease;
+    /* Subtle cyberpunk pattern overlay */
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 0, 255, 0.05) 0%, transparent 50%),
+        linear-gradient(45deg, transparent 49%, rgba(255, 255, 255, 0.02) 50%, transparent 51%);
+    background-size: 100px 100px, 100px 100px, 20px 20px;
+}
+
+.project-card:hover::after {
+    background: rgba(255, 255, 255, 0.05);
+    /* Enhanced pattern visibility on hover */
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 0, 255, 0.08) 0%, transparent 50%),
+        linear-gradient(45deg, transparent 49%, rgba(255, 255, 255, 0.04) 50%, transparent 51%);
+}
+
+/* Enhanced Project Card Hover Effects with Cyberpunk Aesthetics */
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(0, 255, 255, 0.2),
+        0 0 60px rgba(255, 0, 255, 0.1);
+    /* Enhanced border visibility on hover */
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Project card content structure */
+.project-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.project-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, 
+        rgba(0, 255, 255, 0.15) 0%, 
+        rgba(255, 0, 255, 0.15) 50%, 
+        rgba(255, 255, 0, 0.15) 100%);
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Icon glow effect */
+.project-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 18px;
+}
+
+.project-header {
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+
+.project-header h4 {
+    font-size: 1.4rem;
+    margin: 0 0 0.5rem 0;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-align: center;
+    /* Enhanced cyberpunk title styling */
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.3),
+        0 0 20px rgba(0, 255, 255, 0.2),
+        0 0 30px rgba(255, 0, 255, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.project-description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.95rem;
+    flex-grow: 1;
+    font-weight: 300;
+    text-align: center;
+    /* Enhanced readability with subtle glow */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+    justify-content: center;
+}
+
+.tech-tag {
+    background: linear-gradient(135deg, 
+        rgba(0, 255, 255, 0.1) 0%, 
+        rgba(255, 0, 255, 0.1) 100%);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    /* Subtle glow effect */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Tech tag shimmer effect */
+.tech-tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.project-card:hover .tech-tag {
+    background: linear-gradient(135deg, 
+        rgba(0, 255, 255, 0.2) 0%, 
+        rgba(255, 0, 255, 0.2) 100%);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.project-card:hover .tech-tag::before {
+    left: 100%;
+}
+
+/* CSS Custom Properties for theming */
+:root {
+    --project-card-bg: rgba(0, 0, 0, 0.9);
+    --project-card-border: rgba(255, 255, 255, 0.1);
+    --project-card-hover-bg: rgba(0, 0, 0, 0.95);
+    --project-card-text: rgba(255, 255, 255, 0.8);
+    --project-card-title: #ffffff;
+    --project-tech-bg: rgba(255, 255, 255, 0.1);
+    --project-tech-text: rgba(255, 255, 255, 0.9);
+    --project-glow-primary: #00ff00;
+    --project-glow-secondary: #00ffff;
+    --project-glow-accent: #ff00ff;
+}
+
+/* Responsive Grid System */
+@media (max-width: 1024px) {
+    .projects-showcase {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-showcase {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .project-card {
+        padding: 1.5rem;
+        min-height: 320px;
+    }
+    
+    .project-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+    
+    .project-header h4 {
+        font-size: 1.3rem;
+    }
+    
+    .project-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-showcase {
+        gap: 1rem;
+        padding: 0 0.5rem;
+    }
+    
+    .project-card {
+        padding: 1.2rem;
+        min-height: 300px;
+    }
+    
+    .project-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
+    }
+    
+    .project-header h4 {
+        font-size: 1.2rem;
+    }
+    
+    .tech-tag {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.6rem;
+    }
+}
+
+/* Enhanced glow effects for project cards */
+.project-card:hover .project-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, 
+        rgba(0, 255, 255, 0.25) 0%, 
+        rgba(255, 0, 255, 0.25) 50%, 
+        rgba(255, 255, 0, 0.25) 100%);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(0, 255, 255, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.project-card:hover .project-icon::before {
+    opacity: 1;
+}
+
+/* Neon glow effects matching existing theme */
+.project-card.glow-primary {
+    border-color: rgba(0, 255, 0, 0.3);
+}
+
+.project-card.glow-primary:hover {
+    box-shadow: 0 20px 40px rgba(0, 255, 0, 0.2), 0 0 30px rgba(0, 255, 0, 0.3);
+}
+
+.project-card.glow-secondary {
+    border-color: rgba(0, 255, 255, 0.3);
+}
+
+.project-card.glow-secondary:hover {
+    box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2), 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+.project-card.glow-accent {
+    border-color: rgba(255, 0, 255, 0.3);
+}
+
+.project-card.glow-accent:hover {
+    box-shadow: 0 20px 40px rgba(255, 0, 255, 0.2), 0 0 30px rgba(255, 0, 255, 0.3);
+}
+
+/* Color-coded borders for different project types */
+.project-card[data-category="ai-ml"] {
+    border-color: rgba(0, 255, 255, 0.2);
+}
+
+.project-card[data-category="ai-ml"]:hover {
+    border-color: rgba(0, 255, 255, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2), 0 0 30px rgba(0, 255, 255, 0.4);
+}
+
+.project-card[data-category="web-dev"] {
+    border-color: rgba(0, 255, 0, 0.2);
+}
+
+.project-card[data-category="web-dev"]:hover {
+    border-color: rgba(0, 255, 0, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 255, 0, 0.2), 0 0 30px rgba(0, 255, 0, 0.4);
+}
+
+.project-card[data-category="dashboard"] {
+    border-color: rgba(255, 0, 255, 0.2);
+}
+
+.project-card[data-category="dashboard"]:hover {
+    border-color: rgba(255, 0, 255, 0.5);
+    box-shadow: 0 20px 40px rgba(255, 0, 255, 0.2), 0 0 30px rgba(255, 0, 255, 0.4);
+}
+
+.project-card[data-category="space-tech"] {
+    border-color: rgba(255, 255, 0, 0.2);
+}
+
+.project-card[data-category="space-tech"]:hover {
+    border-color: rgba(255, 255, 0, 0.5);
+    box-shadow: 0 20px 40px rgba(255, 255, 0, 0.2), 0 0 30px rgba(255, 255, 0, 0.4);
+}
+
+/* Prefers reduced motion support for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .project-card {
+        transition: none;
+    }
+    
+    .project-card::before {
+        animation: none;
+    }
+    
+    .project-card:hover {
+        transform: none;
+    }
+    
+    .project-icon {
+        transition: none;
+    }
+    
+    .project-card:hover .project-icon {
+        transform: none;
+    }
+}
+
+/* Cyberpunk Scan Line Effect for Project Cards */
+.project-card::after {
+    /* Add scan line animation */
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 0, 255, 0.05) 0%, transparent 50%),
+        linear-gradient(45deg, transparent 49%, rgba(255, 255, 255, 0.02) 50%, transparent 51%),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 255, 255, 0.03) 2px,
+            rgba(0, 255, 255, 0.03) 4px
+        );
+    background-size: 100px 100px, 100px 100px, 20px 20px, 100% 4px;
+    animation: scanLines 8s linear infinite;
+}
+
+@keyframes scanLines {
+    0% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%; }
+    100% { background-position: 100% 100%, -100% -100%, 50% 50%, 0% 100%; }
+}
+
+/* Enhanced Color-Coded Borders with Pulsing Effect */
+.project-card[data-category="ai-ml"] {
+    border-color: rgba(0, 255, 255, 0.3);
+    animation: pulseAI 3s ease-in-out infinite;
+}
+
+.project-card[data-category="web-dev"] {
+    border-color: rgba(0, 255, 0, 0.3);
+    animation: pulseWeb 3s ease-in-out infinite;
+}
+
+.project-card[data-category="dashboard"] {
+    border-color: rgba(255, 0, 255, 0.3);
+    animation: pulseDash 3s ease-in-out infinite;
+}
+
+.project-card[data-category="space-tech"] {
+    border-color: rgba(255, 255, 0, 0.3);
+    animation: pulseSpace 3s ease-in-out infinite;
+}
+
+@keyframes pulseAI {
+    0%, 100% { 
+        border-color: rgba(0, 255, 255, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 rgba(0, 255, 255, 0.4);
+    }
+    50% { 
+        border-color: rgba(0, 255, 255, 0.6);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 255, 255, 0.4);
+    }
+}
+
+@keyframes pulseWeb {
+    0%, 100% { 
+        border-color: rgba(0, 255, 0, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 rgba(0, 255, 0, 0.4);
+    }
+    50% { 
+        border-color: rgba(0, 255, 0, 0.6);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 255, 0, 0.4);
+    }
+}
+
+@keyframes pulseDash {
+    0%, 100% { 
+        border-color: rgba(255, 0, 255, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 rgba(255, 0, 255, 0.4);
+    }
+    50% { 
+        border-color: rgba(255, 0, 255, 0.6);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 0, 255, 0.4);
+    }
+}
+
+@keyframes pulseSpace {
+    0%, 100% { 
+        border-color: rgba(255, 255, 0, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 rgba(255, 255, 0, 0.4);
+    }
+    50% { 
+        border-color: rgba(255, 255, 0, 0.6);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 0, 0.4);
+    }
+}
+
+/* Enhanced Hover Effects with Multiple Glow Layers */
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(0, 255, 255, 0.2),
+        0 0 60px rgba(255, 0, 255, 0.1),
+        0 0 100px rgba(255, 255, 0, 0.05);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Cyberpunk Data Stream Effect */
+.project-card:hover::after {
+    animation-duration: 2s;
+}
+
+/* Enhanced Typography with Cyberpunk Glow */
+.project-header h4 {
+    background: linear-gradient(90deg, #ffffff, #00ffff, #ffffff);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShimmer 3s ease-in-out infinite;
+}
+
+@keyframes textShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Holographic Effect on Hover */
+.project-card:hover .project-header h4 {
+    text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.8),
+        0 0 10px rgba(0, 255, 255, 0.6),
+        0 0 15px rgba(255, 0, 255, 0.4),
+        0 0 20px rgba(255, 255, 0, 0.2);
+    animation-duration: 1.5s;
+}
