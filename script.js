@@ -11,73 +11,143 @@ let rgbLight1, rgbLight2, rgbLight3, mainLight;
 // Projects Data Structure and Configuration
 const projectsData = [
     {
-        id: 'glamglow',
-        name: 'GlamGlow',
-        description: 'A smart beauty product recommender leveraging ML to personalize your glow-up journey.',
-        icon: 'fas fa-sparkles',
-        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/GlamGlow',
-        technologies: ['Machine Learning', 'Python', 'Recommendation System', 'Flask', 'Scikit-learn'],
-        color: '#ff00ff',
-        featured: false
+        id: 'kisaanmitra',
+        name: 'KisaanMitra 🌾',
+        description: 'Multi-Agent System for collective agricultural intelligence — climate insights, autonomous irrigation, market intelligence, and financial inclusion for farmers.',
+        icon: 'fas fa-tractor',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/KisaanMitra',
+        technologies: ['Multi-Agent Systems', 'IoT', 'AI', 'Python', 'Web3'],
+        color: '#ffc107',
+        featured: true
     },
     {
-        id: 'healthcare-dashboard',
-        name: 'HealthCare System Dashboard',
-        description: 'Empowering healthcare analytics and insights using real-time ML-powered dashboards.',
-        icon: 'fas fa-heartbeat',
-        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/HealthCare-System-Dashboard',
-        technologies: ['Machine Learning', 'React', 'Node.js', 'MongoDB', 'Data Analytics'],
-        color: '#00ff88',
-        featured: false
-    },
-    {
-        id: 'urban-planning',
-        name: 'Urban Planning AI',
-        description: 'Optimizing city layouts and urban solutions through intelligent AI modeling.',
-        icon: 'fas fa-city',
-        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/Urban-Planning-AI',
-        technologies: ['AI Modeling', 'Python', 'TensorFlow', 'Geospatial Analysis', 'Computer Vision'],
-        color: '#0099ff',
-        featured: false
-    },
-    {
-        id: 'clipbait',
-        name: 'Clipbait',
-        description: 'Effortlessly capture, analyze, and share trending video moments using machine learning and deep learning.',
-        icon: 'fas fa-video',
-        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/Clipbait',
-        technologies: ['Deep Learning', 'Computer Vision', 'Python', 'OpenCV', 'Neural Networks'],
-        color: '#ff6600',
-        featured: false
-    },
-    {
-        id: 'donorconnect',
-        name: 'DonorConnect',
-        description: 'Harnesses ML & DL to intelligently match donors and recipients in real time for life-saving connections.',
-        icon: 'fas fa-hand-holding-heart',
-        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/DonorConnect',
-        technologies: ['Machine Learning', 'Deep Learning', 'React', 'Node.js', 'Real-time Matching'],
-        color: '#ff0066',
-        featured: false
+        id: 'novapulse',
+        name: 'NovaPulse 🧠',
+        description: 'Voice-powered multi-agent news intelligence system using Amazon Nova AI for sentiment analysis, trend detection, and automated summaries.',
+        icon: 'fas fa-brain',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/NovaPulse',
+        technologies: ['Amazon Nova AI', 'Voice Tech', 'Sentiment Analysis', 'Python', 'NLP'],
+        color: '#00ccff',
+        featured: true
     },
     {
         id: 'project-astraeus',
-        name: 'SIH 2025: 🚀 Project Astraeus — AI-powered Mission Control System',
+        name: 'SIH 2025: 🚀 Project Astraeus',
         description: 'Digital Twin simulation, Graph Neural Networks, and Reinforcement Learning to solve the "traffic jam in the sky" through satellite scheduling optimization.',
         icon: 'fas fa-satellite',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/PROJECT_ENTANGLEMENT',
         technologies: ['Graph Neural Networks', 'Reinforcement Learning', 'Digital Twin', 'Python', 'Satellite Systems'],
-        color: '#6600ff',
+        color: '#fe428e',
         featured: true
     },
     {
+        id: 'donorconnect',
+        name: 'DonorConnect ❤️',
+        description: 'Harnesses ML & DL to intelligently match donors and recipients in real time for life-saving connections.',
+        icon: 'fas fa-hand-holding-heart',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/DonorConnectT',
+        technologies: ['Machine Learning', 'Deep Learning', 'React', 'Node.js', 'Real-time Matching'],
+        color: '#f44336',
+        featured: true
+    },
+    {
+        id: 'neuracity',
+        name: 'NEURACITY 🏙️',
+        description: 'Neural/ML toolkit for city modelling and visualization — traffic optimization, zoning intelligence, and urban simulation.',
+        icon: 'fas fa-city',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/NEURACITY',
+        technologies: ['Machine Learning', 'Urban Simulation', 'Python', 'Data Visualization', 'City Modelling'],
+        color: '#6e40c9',
+        featured: false
+    },
+    {
+        id: 'clipbait',
+        name: 'Clipbait ✂️',
+        description: 'Effortlessly capture, analyze, and share trending video moments using machine learning and deep learning.',
+        icon: 'fas fa-video',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/Clipbait',
+        technologies: ['Deep Learning', 'Computer Vision', 'Python', 'OpenCV', 'Neural Networks'],
+        color: '#9c27b0',
+        featured: false
+    },
+    {
+        id: 'glamglow',
+        name: 'GlamGlow ✨',
+        description: 'A smart beauty product recommender leveraging ML to personalize your glow-up journey.',
+        icon: 'fas fa-sparkles',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/GlamGlow',
+        technologies: ['Machine Learning', 'Python', 'Recommendation System', 'Flask', 'Scikit-learn'],
+        color: '#e91e63',
+        featured: false
+    },
+    {
+        id: 'healthcare-dashboard',
+        name: 'HealthCare System Dashboard 🏥',
+        description: 'Empowering healthcare analytics and insights using real-time ML-powered dashboards.',
+        icon: 'fas fa-heartbeat',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/HealthCare-System-Dashboard',
+        technologies: ['Machine Learning', 'React', 'Node.js', 'MongoDB', 'Data Analytics'],
+        color: '#f44336',
+        featured: false
+    },
+    {
+        id: 'urban-planning',
+        name: 'Urban Planning AI 🌆',
+        description: 'Optimizing city layouts and urban solutions through intelligent AI modeling.',
+        icon: 'fas fa-building',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/URBAN-PLANNING',
+        technologies: ['AI Modeling', 'Python', 'TensorFlow', 'Geospatial Analysis', 'Computer Vision'],
+        color: '#4caf50',
+        featured: false
+    },
+    {
         id: 'hackathon-dashboard',
-        name: 'Hackathon Dashboard',
+        name: 'Hackathon Dashboard 📊',
         description: 'A real-time dashboard to streamline and manage hackathon events and submissions.',
-        icon: 'fas fa-code',
+        icon: 'fas fa-chart-bar',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/Hackathon-Dashboard',
         technologies: ['Real-time Analytics', 'React', 'Node.js', 'WebSocket', 'Event Management'],
-        color: '#00ccff',
+        color: '#3178c6',
+        featured: false
+    },
+    {
+        id: 'vaaya-project',
+        name: 'VAAYA-PROJECT ✈️',
+        description: 'Smart travel platform blending Google Maps + Reels discovery + gamified exploration quests for travelers and local earners.',
+        icon: 'fas fa-plane',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/VAAYA-PROJECT',
+        technologies: ['Full Stack', 'Google Maps API', 'React', 'Node.js', 'Gamification'],
+        color: '#0077b5',
+        featured: false
+    },
+    {
+        id: 'vootex',
+        name: 'VoOTEX 🎙️',
+        description: 'Voice-to-text transcription pipeline with speaker diarization, noise handling, and post-processing intelligence.',
+        icon: 'fas fa-microphone',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/VoOTEX',
+        technologies: ['Voice Tech', 'Speech-to-Text', 'NLP', 'Python', 'Diarization'],
+        color: '#f8d847',
+        featured: false
+    },
+    {
+        id: 'x-forecast',
+        name: 'X-FORECAST 📈',
+        description: 'Advanced time-series forecasting models and dashboards for demand prediction, analytics, and trend intelligence.',
+        icon: 'fas fa-chart-line',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/X-FORECAST',
+        technologies: ['Forecasting', 'Time-series', 'Analytics', 'Machine Learning', 'Python'],
+        color: '#ff9900',
+        featured: false
+    },
+    {
+        id: 'finance-bud',
+        name: 'finance-bud 💰',
+        description: 'Intelligent personal finance manager with budgeting automation, expense analytics, and financial insights.',
+        icon: 'fas fa-wallet',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/finance-bud',
+        technologies: ['FinTech AI', 'React', 'Node.js', 'Data Analytics', 'Finance Management'],
+        color: '#00c853',
         featured: false
     }
 ];
@@ -554,6 +624,64 @@ projectStyle.textContent = `
         box-shadow: 0 0 0 6px rgba(0, 204, 255, 0.25);
     }
     
+    /* Glitch Animation for Hero Title */
+    .hero-title {
+        position: relative;
+        display: inline-block;
+        animation: glitch 3s infinite alternate;
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(255, 0, 255, 0.5);
+    }
+    
+    .hero-title::before, .hero-title::after {
+        content: "MUKUL PRASAD";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        background: transparent;
+        color: white;
+        clip: rect(0, 900px, 0, 0);
+    }
+    
+    .hero-title::before {
+        left: -2px;
+        text-shadow: 2px 0 #ff00ff;
+        animation: glitch-anim 2.5s infinite linear alternate-reverse;
+    }
+    
+    .hero-title::after {
+        left: 2px;
+        text-shadow: -2px 0 #00ffff;
+        animation: glitch-anim-2 3s infinite linear alternate-reverse;
+    }
+    
+    @keyframes glitch-anim {
+        0% { clip: rect(10px, 9999px, 86px, 0); transform: skew(0.5deg); }
+        5% { clip: rect(20px, 9999px, 5px, 0); transform: skew(0.1deg); }
+        10% { clip: rect(50px, 9999px, 70px, 0); transform: skew(0.3deg); }
+        15% { clip: rect(80px, 9999px, 15px, 0); transform: skew(0.2deg); }
+        20% { clip: rect(25px, 9999px, 45px, 0); transform: skew(0.7deg); }
+        25% { clip: rect(12px, 9999px, 80px, 0); transform: skew(0.4deg); }
+        30% { clip: rect(66px, 9999px, 33px, 0); transform: skew(0.8deg); }
+        35% { clip: rect(98px, 9999px, 12px, 0); transform: skew(0.1deg); }
+        40% { clip: rect(10px, 9999px, 90px, 0); transform: skew(0.9deg); }
+        100% { clip: rect(2px, 9999px, 86px, 0); transform: skew(0.5deg); }
+    }
+    
+    @keyframes glitch-anim-2 {
+        0% { clip: rect(35px, 9999px, 2px, 0); transform: skew(0.8deg); }
+        5% { clip: rect(4px, 9999px, 30px, 0); transform: skew(0.3deg); }
+        10% { clip: rect(70px, 9999px, 15px, 0); transform: skew(0.6deg); }
+        15% { clip: rect(22px, 9999px, 60px, 0); transform: skew(0.2deg); }
+        20% { clip: rect(50px, 9999px, 20px, 0); transform: skew(0.9deg); }
+        25% { clip: rect(15px, 9999px, 90px, 0); transform: skew(0.1deg); }
+        30% { clip: rect(88px, 9999px, 40px, 0); transform: skew(0.4deg); }
+        35% { clip: rect(5px, 9999px, 50px, 0); transform: skew(0.7deg); }
+        40% { clip: rect(40px, 9999px, 80px, 0); transform: skew(0.5deg); }
+        100% { clip: rect(10px, 9999px, 20px, 0); transform: skew(0.6deg); }
+    }
+
     /* Prefers-reduced-motion support */
     @media (prefers-reduced-motion: reduce) { 
         .project-card, .project-card::before, .project-card .project-icon, .project-card .project-tag { 
