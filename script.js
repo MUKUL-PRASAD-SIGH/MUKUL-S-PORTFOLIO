@@ -11,6 +11,56 @@ let rgbLight1, rgbLight2, rgbLight3, mainLight;
 // Projects Data Structure and Configuration
 const projectsData = [
     {
+        id: 'reggraph-ai',
+        name: 'RegGraph-AI 🕸️',
+        description: 'AI-powered regulatory knowledge graph system for intelligent compliance mapping, automated regulation analysis, and graph-based reasoning.',
+        icon: 'fas fa-project-diagram',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/RegGraph-AI',
+        technologies: ['Knowledge Graph AI', 'Python', 'NLP', 'Deep Learning', 'RAG'],
+        color: '#fe428e',
+        featured: true
+    },
+    {
+        id: 'contextos',
+        name: 'ContextOS ⚡',
+        description: 'Intelligent Android background agent that proactively automates user workflows using contextual situation modeling and adaptive decision-making.',
+        icon: 'fas fa-mobile-alt',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/ContextOS',
+        technologies: ['Autonomous AI Agent', 'Android', 'On-device AI', 'Google APIs'],
+        color: '#7c3aed',
+        featured: true
+    },
+    {
+        id: 'neurosoc',
+        name: 'NeuroSOC 🧠',
+        description: 'AI-powered SOC analyst system that performs real-time threat detection using SNN, LNN, and XGBoost ensemble models.',
+        icon: 'fas fa-shield-alt',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/NeuroSOC',
+        technologies: ['Cybersecurity AI', 'SNN', 'LNN', 'XGBoost', 'Microservices'],
+        color: '#ff3b5c',
+        featured: true
+    },
+    {
+        id: 'githopper',
+        name: 'GitHopper 🦘',
+        description: 'Intelligent Git repository analysis platform that performs deep code scanning, technical debt detection, and health scoring.',
+        icon: 'fab fa-git-alt',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/GITHOPPER',
+        technologies: ['AI DevTool', 'Code Scanning', 'MCP', 'Synthesis'],
+        color: '#00b894',
+        featured: true
+    },
+    {
+        id: 'llm-benchmark',
+        name: 'LLM Benchmark Game 🎮',
+        description: 'Interactive AI benchmark platform that compares multiple LLMs through real-time game-based challenges and reasoning tasks.',
+        icon: 'fas fa-gamepad',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/LLM_BENCHMARK_GAME',
+        technologies: ['AI Benchmark', 'LLM', 'Interactive', 'Reasoning'],
+        color: '#6e40c9',
+        featured: true
+    },
+    {
         id: 'kisaanmitra',
         name: 'KisaanMitra 🌾',
         description: 'Multi-Agent System for collective agricultural intelligence — climate insights, autonomous irrigation, market intelligence, and financial inclusion for farmers.',
@@ -18,7 +68,7 @@ const projectsData = [
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/KisaanMitra',
         technologies: ['Multi-Agent Systems', 'IoT', 'AI', 'Python', 'Web3'],
         color: '#ffc107',
-        featured: true
+        featured: false
     },
     {
         id: 'novapulse',
@@ -28,7 +78,7 @@ const projectsData = [
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/NovaPulse',
         technologies: ['Amazon Nova AI', 'Voice Tech', 'Sentiment Analysis', 'Python', 'NLP'],
         color: '#00ccff',
-        featured: true
+        featured: false
     },
     {
         id: 'project-astraeus',
@@ -38,7 +88,7 @@ const projectsData = [
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/PROJECT_ENTANGLEMENT',
         technologies: ['Graph Neural Networks', 'Reinforcement Learning', 'Digital Twin', 'Python', 'Satellite Systems'],
         color: '#fe428e',
-        featured: true
+        featured: false
     },
     {
         id: 'donorconnect',
@@ -48,7 +98,7 @@ const projectsData = [
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/DonorConnectT',
         technologies: ['Machine Learning', 'Deep Learning', 'React', 'Node.js', 'Real-time Matching'],
         color: '#f44336',
-        featured: true
+        featured: false
     },
     {
         id: 'neuracity',
@@ -58,46 +108,6 @@ const projectsData = [
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/NEURACITY',
         technologies: ['Machine Learning', 'Urban Simulation', 'Python', 'Data Visualization', 'City Modelling'],
         color: '#6e40c9',
-        featured: false
-    },
-    {
-        id: 'clipbait',
-        name: 'Clipbait ✂️',
-        description: 'Effortlessly capture, analyze, and share trending video moments using machine learning and deep learning.',
-        icon: 'fas fa-video',
-        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/Clipbait',
-        technologies: ['Deep Learning', 'Computer Vision', 'Python', 'OpenCV', 'Neural Networks'],
-        color: '#9c27b0',
-        featured: false
-    },
-    {
-        id: 'glamglow',
-        name: 'GlamGlow ✨',
-        description: 'A smart beauty product recommender leveraging ML to personalize your glow-up journey.',
-        icon: 'fas fa-sparkles',
-        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/GlamGlow',
-        technologies: ['Machine Learning', 'Python', 'Recommendation System', 'Flask', 'Scikit-learn'],
-        color: '#e91e63',
-        featured: false
-    },
-    {
-        id: 'healthcare-dashboard',
-        name: 'HealthCare System Dashboard 🏥',
-        description: 'Empowering healthcare analytics and insights using real-time ML-powered dashboards.',
-        icon: 'fas fa-heartbeat',
-        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/HealthCare-System-Dashboard',
-        technologies: ['Machine Learning', 'React', 'Node.js', 'MongoDB', 'Data Analytics'],
-        color: '#f44336',
-        featured: false
-    },
-    {
-        id: 'urban-planning',
-        name: 'Urban Planning AI 🌆',
-        description: 'Optimizing city layouts and urban solutions through intelligent AI modeling.',
-        icon: 'fas fa-building',
-        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/URBAN-PLANNING',
-        technologies: ['AI Modeling', 'Python', 'TensorFlow', 'Geospatial Analysis', 'Computer Vision'],
-        color: '#4caf50',
         featured: false
     },
     {
@@ -128,16 +138,6 @@ const projectsData = [
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/VoOTEX',
         technologies: ['Voice Tech', 'Speech-to-Text', 'NLP', 'Python', 'Diarization'],
         color: '#f8d847',
-        featured: false
-    },
-    {
-        id: 'x-forecast',
-        name: 'X-FORECAST 📈',
-        description: 'Advanced time-series forecasting models and dashboards for demand prediction, analytics, and trend intelligence.',
-        icon: 'fas fa-chart-line',
-        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/X-FORECAST',
-        technologies: ['Forecasting', 'Time-series', 'Analytics', 'Machine Learning', 'Python'],
-        color: '#ff9900',
         featured: false
     },
     {
