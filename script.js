@@ -439,9 +439,11 @@ projectStyle.textContent = `
     /* Enhanced cyberpunk project styling */
     .projects-grid { 
         gap: 2.5rem; 
-        display: grid; 
-        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); 
-        padding: 2rem 0;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 2rem 1rem;
+        scroll-behavior: smooth;
     }
     
     .project-card { 
@@ -450,6 +452,8 @@ projectStyle.textContent = `
         color: inherit; 
         position: relative;
         overflow: hidden;
+        flex: 0 0 min(90vw, 380px); /* Fixed width for horizontal scroll */
+        scroll-snap-align: center;
         border-radius: 20px;
         border: 3px solid;
         padding: 0;
@@ -696,9 +700,8 @@ projectStyle.textContent = `
     /* Responsive adjustments */
     @media (max-width: 768px) {
         .projects-grid { 
-            grid-template-columns: 1fr;
             gap: 1.5rem;
-            padding: 1rem 0;
+            padding: 1rem 1rem;
         }
         .project-card .project-header,
         .project-card .project-content {
