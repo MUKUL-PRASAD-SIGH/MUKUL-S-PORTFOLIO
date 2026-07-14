@@ -36,7 +36,7 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #000011, #001133, #000022, #001144);
+            background: linear-gradient(135deg, #050505, #0c0812, #050505, #080c14);
             background-size: 400% 400%;
             animation: gradientShift 15s ease infinite;
             color: #ffffff;
@@ -77,7 +77,7 @@
             width: 100vw;
             height: 100vh;
             z-index: -1;
-            background: linear-gradient(135deg, #000011, #001133, #000022);
+            background: linear-gradient(135deg, #050505, #0c0812, #050505);
         }
         
         /* Navigation */
@@ -85,13 +85,12 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(15px);
-            border-bottom: 2px solid;
-            border-image: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00, #ff00ff) 1;
+            background: rgba(5, 5, 5, 0.7);
+            backdrop-filter: blur(30px) saturate(150%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             z-index: 1000;
             padding: 1rem 0;
-            box-shadow: 0 5px 30px rgba(255, 0, 255, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
         
         .nav-container {
@@ -136,10 +135,8 @@
         }
         
         .nav-links a:hover {
-            background: linear-gradient(45deg, rgba(0, 150, 255, 0.2), rgba(0, 200, 255, 0.2));
-            color: #00ccff;
-            text-shadow: 0 0 10px rgba(0, 200, 255, 0.8);
-            box-shadow: 0 0 20px rgba(0, 150, 255, 0.4);
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
         }
         
         .nav-links a::after {
@@ -177,9 +174,9 @@
         }
         
         .hero-terminal {
-            background: rgba(0, 0, 0, 0.9);
-            border: 3px solid;
-            border-image: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff0080) 1;
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             padding: 2rem;
             margin-bottom: 2rem;
@@ -194,19 +191,10 @@
         .hero-terminal::before {
             content: '';
             position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff0080);
+            top: 0; left: 0; right: 0; bottom: 0;
             border-radius: 15px;
-            z-index: -1;
-            animation: borderRotate 3s linear infinite;
-        }
-        
-        @keyframes borderRotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+            pointer-events: none;
         }
         
         .terminal-header {
@@ -539,7 +527,7 @@
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 0, 20, 0.6));
             padding: 1.5rem;
             border-radius: 20px;
-            border: 2px solid;
+            border: 1px solid;
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -733,7 +721,7 @@
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(30, 0, 30, 0.7));
             border-radius: 20px;
             padding: 1.5rem;
-            border: 3px solid;
+            border: 1px solid;
             position: relative;
             overflow: hidden;
             opacity: 0;
@@ -930,12 +918,23 @@
             gap: 2.5rem;
         }
         
+        .exp-card {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(20, 0, 20, 0.85));
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid;
+            transition: all 0.5s ease;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+        }
+        
         .project-card {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(30, 0, 30, 0.7));
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(20, 0, 20, 0.85));
             border-radius: 20px;
             overflow: hidden;
-            border: 3px solid;
-            transition: all 0.4s ease;
+            border: 1px solid;
+            transition: all 0.5s ease;
             text-decoration: none;
             color: inherit;
             position: relative;
