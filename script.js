@@ -2905,4 +2905,28 @@ function initAssistantAnimations() {
     console.log('Assistant section ready for robot interaction');
 }
 
+// Horizontal Scroll Carousel Logic
+function initCarousels() {
+    const projectsGrid = document.getElementById('projects-grid');
+    const scrollLeftBtn = document.getElementById('scroll-left');
+    const scrollRightBtn = document.getElementById('scroll-right');
+
+    if (projectsGrid && scrollLeftBtn && scrollRightBtn) {
+        // Scroll amount is roughly one card width + gap
+        const scrollAmount = 350;
+
+        scrollLeftBtn.addEventListener('click', () => {
+            projectsGrid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+
+        scrollRightBtn.addEventListener('click', () => {
+            projectsGrid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initCarousels();
+});
+
 console.log('🎯 Script loaded successfully!');

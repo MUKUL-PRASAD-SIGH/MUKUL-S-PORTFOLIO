@@ -1886,10 +1886,20 @@
     
     <!-- Projects Section -->
     <section id="projects" class="section">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-showcase" role="region" aria-label="Portfolio projects showcase">
-            <!-- Project cards will be dynamically inserted into the grid by script.js -->
+        <h2 class="section-title">Projects</h2>
+        
+        <!-- Filter Controls -->
+        <div class="filter-controls" role="group" aria-label="Project filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="ai">AI/ML</button>
+            <button class="filter-btn" data-filter="web">Web Dev</button>
+            <button class="filter-btn" data-filter="data">Data Science</button>
+        </div>
+
+        <div class="projects-carousel-wrapper" style="position: relative; max-width: 1200px; margin: 0 auto;">
+            <button id="scroll-left" class="scroll-btn" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
             <div id="projects-grid" class="projects-grid" role="list" aria-label="Portfolio projects list"></div>
+            <button id="scroll-right" class="scroll-btn" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
     

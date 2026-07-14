@@ -822,14 +822,30 @@ section {
 
 /* Experience Section */
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
     gap: 2rem;
     margin: 2rem auto;
     max-width: 1200px;
-    padding: 0 1.5rem;
+    padding: 1rem 1.5rem 2rem 1.5rem;
     width: 100%;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+.projects-grid::-webkit-scrollbar {
+    height: 8px;
+}
+.projects-grid::-webkit-scrollbar-track {
+    background: rgba(0, 255, 255, 0.05);
+    border-radius: 10px;
+}
+.projects-grid::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 255, 0.2);
+    border-radius: 10px;
+}
+.projects-grid::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 255, 0.4);
 }
 
 .skill-category {
@@ -1758,14 +1774,30 @@ section {
 
 /* Projects Section */
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
     gap: 2rem;
+    padding-bottom: 2rem; /* Give room for scrollbar */
+    scroll-behavior: smooth;
+}
+.projects-grid::-webkit-scrollbar {
+    height: 8px;
+}
+.projects-grid::-webkit-scrollbar-track {
+    background: rgba(0, 255, 255, 0.05);
+    border-radius: 10px;
+}
+.projects-grid::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 255, 0.2);
+    border-radius: 10px;
 }
 
 .project-card {
     position: relative;
     height: 300px;
+    flex: 0 0 320px; /* Fixed width for scrolling */
+    scroll-snap-align: center;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     overflow: hidden;
@@ -2640,17 +2672,33 @@ footer {
    Achievements Section
    ============================================================== */
 .achievements-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    padding-bottom: 2rem; /* Give room for scrollbar */
     position: relative;
     z-index: 10;
+    scroll-behavior: smooth;
+}
+.achievements-grid::-webkit-scrollbar {
+    height: 8px;
+}
+.achievements-grid::-webkit-scrollbar-track {
+    background: rgba(255, 0, 255, 0.05);
+    border-radius: 10px;
+}
+.achievements-grid::-webkit-scrollbar-thumb {
+    background: rgba(255, 0, 255, 0.2);
+    border-radius: 10px;
 }
 
 .achievement-card {
     position: relative;
+    flex: 0 0 min(90vw, 380px); /* Fixed width for scroll */
+    scroll-snap-align: center;
     background: rgba(10, 15, 30, 0.7);
     border: 1px solid rgba(255, 0, 255, 0.2);
     border-radius: 15px;
@@ -2728,14 +2776,30 @@ footer {
    ============================================================== */
 .exp-cards-container {
     display: flex;
-    flex-direction: column;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
     gap: 2rem;
     width: 100%;
     margin-top: 2rem;
+    padding-bottom: 2rem;
+    scroll-behavior: smooth;
+}
+.exp-cards-container::-webkit-scrollbar {
+    height: 8px;
+}
+.exp-cards-container::-webkit-scrollbar-track {
+    background: rgba(0, 255, 255, 0.05);
+    border-radius: 10px;
+}
+.exp-cards-container::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 255, 0.2);
+    border-radius: 10px;
 }
 
 .exp-card {
     position: relative;
+    flex: 0 0 min(90vw, 380px); /* Fixed width for scroll */
+    scroll-snap-align: center;
     background: rgba(10, 15, 30, 0.4);
     border: 1px solid rgba(0, 255, 255, 0.15);
     border-radius: 20px;
@@ -2837,4 +2901,57 @@ footer {
     border-color: #00ffff;
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
     transform: translateY(-2px);
+}
+
+/* ==============================================================
+   Scroll Carousel Buttons
+   ============================================================== */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(10, 15, 30, 0.7);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+.scroll-btn:hover {
+    background: rgba(0, 255, 255, 0.2);
+    border-color: #00ffff;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+    color: #00ffff;
+}
+
+#scroll-left {
+    left: -25px;
+}
+
+#scroll-right {
+    right: -25px;
+}
+
+@media (max-width: 1250px) {
+    #scroll-left {
+        left: 5px;
+    }
+    #scroll-right {
+        right: 5px;
+    }
+}
+@media (max-width: 768px) {
+    .scroll-btn {
+        display: none; /* Rely on native swipe on mobile */
+    }
 }
