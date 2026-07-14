@@ -2650,23 +2650,46 @@ footer {
 }
 
 .achievement-card {
+    position: relative;
     background: rgba(10, 15, 30, 0.7);
     border: 1px solid rgba(255, 0, 255, 0.2);
     border-radius: 15px;
     padding: 2rem;
-    display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
     backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transition: border-color 0.4s ease;
+    box-shadow: inset 0 0 15px rgba(255, 0, 255, 0.05),
+                0 15px 35px rgba(0, 0, 0, 0.4);
+    transform-style: preserve-3d;
+    cursor: crosshair;
 }
 
 .achievement-card:hover {
-    transform: translateY(-5px) scale(1.02);
     border-color: #ff00ff;
-    box-shadow: 0 10px 30px rgba(255, 0, 255, 0.2),
-                inset 0 0 15px rgba(255, 0, 255, 0.1);
+}
+
+.achievement-card-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(255,0,255,0.1) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.achievement-card:hover .achievement-card-glow {
+    opacity: 1;
+}
+
+.achievement-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    transform: translateZ(30px);
 }
 
 .achievement-icon {
@@ -2675,6 +2698,11 @@ footer {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 0 10px rgba(255, 0, 255, 0.5));
+    transform: translateZ(50px);
+}
+
+.achievement-info {
+    transform: translateZ(20px);
 }
 
 .achievement-info h4 {
