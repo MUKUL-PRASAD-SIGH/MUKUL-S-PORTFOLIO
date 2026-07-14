@@ -232,6 +232,11 @@
             line-height: 1.8;
         }
         
+        .terminal-inner {
+            display: inline-block;
+            text-align: left;
+        }
+        
         .prompt {
             color: #0099ff;
             margin-right: 0.5rem;
@@ -1452,13 +1457,15 @@
                     <div class="terminal-title">mukul@hacker-lab:~$</div>
                 </div>
                 <div class="terminal-content">
-                    <div><span class="prompt">$</span> whoami</div>
-                    <div><span class="highlight">Mukul Prasad</span> - ML Intern @ FlyRank | CS Sophomore @ MSRIT</div>
-                    <div><span class="prompt">$</span> cat roles.txt</div>
-                    <div>GSSoC'26 Mentor | Research Intern @ IEEE CS | AI & ML Engineer</div>
-                    <div><span class="prompt">$</span> echo $STATUS</div>
-                    <div class="highlight">Building intelligent systems and beyond... 🚀</div>
-                    <div><span class="prompt">$</span> <span class="typing-cursor">_</span></div>
+                    <div class="terminal-inner">
+                        <div><span class="prompt">$</span> whoami</div>
+                        <div><span class="highlight">Mukul Prasad</span> - ML Intern @ FlyRank | CS Sophomore @ MSRIT</div>
+                        <div><span class="prompt">$</span> cat roles.txt</div>
+                        <div>GSSoC'26 Mentor | Research Intern @ IEEE CS | AI & ML Engineer</div>
+                        <div><span class="prompt">$</span> echo $STATUS</div>
+                        <div class="highlight">Building intelligent systems and beyond... 🚀</div>
+                        <div><span class="prompt">$</span> <span class="typing-cursor">_</span></div>
+                    </div>
                 </div>
             </div>
             
