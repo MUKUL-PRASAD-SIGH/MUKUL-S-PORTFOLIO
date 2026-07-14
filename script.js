@@ -2908,6 +2908,15 @@ function initAssistantAnimations() {
     console.log('Assistant section ready for robot interaction');
 }
 
+// Generic Carousel Scroll Function
+window.scrollCarousel = function(containerId, direction) {
+    const container = document.getElementById(containerId);
+    if (container) {
+        const scrollAmount = 350 * direction;
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+};
+
 // Horizontal Scroll Carousel Logic
 function initCarousels() {
     const projectsGrid = document.getElementById('projects-grid');
@@ -2915,16 +2924,8 @@ function initCarousels() {
     const scrollRightBtn = document.getElementById('scroll-right');
 
     if (projectsGrid && scrollLeftBtn && scrollRightBtn) {
-        // Scroll amount is roughly one card width + gap
-        const scrollAmount = 350;
-
-        scrollLeftBtn.addEventListener('click', () => {
-            projectsGrid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-        });
-
-        scrollRightBtn.addEventListener('click', () => {
-            projectsGrid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        });
+        scrollLeftBtn.addEventListener('click', () => window.scrollCarousel('projects-grid', -1));
+        scrollRightBtn.addEventListener('click', () => window.scrollCarousel('projects-grid', 1));
     }
 }
 

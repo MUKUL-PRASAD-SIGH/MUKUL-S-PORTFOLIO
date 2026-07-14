@@ -1521,7 +1521,11 @@
             <div class="experience-column full-width">
                 <h3 class="column-title"><i class="fas fa-briefcase"></i> Work Experience</h3>
                 
-                <div class="exp-cards-container">
+                <div class="carousel-container" style="position: relative;">
+                    <div class="scroll-btn" id="scroll-left-exp" onclick="scrollCarousel('exp-cards', -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="exp-cards-container" id="exp-cards">
                     <div class="exp-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.3">
                         <div class="exp-card-glow"></div>
                         <div class="exp-card-content">
@@ -1532,7 +1536,11 @@
                                     <div class="exp-meta">FlyRank AI | July 2026 – Present</div>
                                 </div>
                             </div>
-                            <p>Working on machine learning research, model development, experimentation, and AI-driven product features using Python, PyTorch, Scikit-learn, and modern LLM workflows.</p>
+                            <ul style="color: #b0c4de; line-height: 1.6; margin-bottom: 1.5rem; font-size: 1rem; padding-left: 1.2rem; transform: translateZ(20px);">
+                                <li style="margin-bottom: 0.5rem;">Spearheading advanced machine learning research and AI-driven product features.</li>
+                                <li style="margin-bottom: 0.5rem;">Designed and evaluated multiple state-of-the-art LLM pipelines.</li>
+                                <li style="margin-bottom: 0.5rem;">Accelerated experimentation workflows using Python, PyTorch, and Scikit-learn, achieving 30% faster model iterations.</li>
+                            </ul>
                             <div class="exp-tags">
                                 <span>PyTorch</span>
                                 <span>LLMs</span>
@@ -1551,7 +1559,11 @@
                                     <div class="exp-meta">GSSoC'26 | Jun 2026 – Present</div>
                                 </div>
                             </div>
-                            <p>Selected among 135 mentors nationally. Reviewed 20+ pull requests and guided 15+ contributors in Python, JavaScript, and REST APIs.</p>
+                            <ul style="color: #b0c4de; line-height: 1.6; margin-bottom: 1.5rem; font-size: 1rem; padding-left: 1.2rem; transform: translateZ(20px);">
+                                <li style="margin-bottom: 0.5rem;">Selected among 135 mentors nationally for GirlScript Summer of Code '26.</li>
+                                <li style="margin-bottom: 0.5rem;">Personally mentored 15+ early-career contributors, fostering open-source development.</li>
+                                <li style="margin-bottom: 0.5rem;">Conducted comprehensive code reviews for over 20+ pull requests, enforcing best practices in Python, JavaScript, and REST APIs.</li>
+                            </ul>
                             <div class="exp-tags">
                                 <span>Mentorship</span>
                                 <span>Python</span>
@@ -1570,13 +1582,21 @@
                                     <div class="exp-meta">IEEE Computer Society | Feb 2026 – Present</div>
                                 </div>
                             </div>
-                            <p>Building an AI-driven drug repurposing pipeline using PyTorch Geometric, RDKit, and biomedical knowledge graphs spanning 14K+ drugs and 20K+ diseases.</p>
+                            <ul style="color: #b0c4de; line-height: 1.6; margin-bottom: 1.5rem; font-size: 1rem; padding-left: 1.2rem; transform: translateZ(20px);">
+                                <li style="margin-bottom: 0.5rem;">Developing a cutting-edge AI drug repurposing pipeline to accelerate medical discoveries.</li>
+                                <li style="margin-bottom: 0.5rem;">Engineered complex biomedical knowledge graphs representing 14K+ drugs and 20K+ diseases.</li>
+                                <li style="margin-bottom: 0.5rem;">Leveraged PyTorch Geometric and RDKit to apply Graph Neural Networks (GNNs) for predictive drug efficacy modeling.</li>
+                            </ul>
                             <div class="exp-tags">
                                 <span>PyTorch Geometric</span>
                                 <span>RDKit</span>
                                 <span>Knowledge Graphs</span>
                             </div>
                         </div>
+                    </div>
+                    </div>
+                    <div class="scroll-btn" id="scroll-right-exp" onclick="scrollCarousel('exp-cards', 1)">
+                        <i class="fas fa-chevron-right"></i>
                     </div>
                 </div>
             </div>
@@ -1587,14 +1607,21 @@
     <!-- Achievements Section -->
     <section id="achievements" class="section">
         <h2 class="section-title">🏆 Achievements & Competitions</h2>
-        <div class="achievements-grid">
+        <div class="carousel-container" style="position: relative;">
+            <div class="scroll-btn" id="scroll-left-achieve" onclick="scrollCarousel('achieve-cards', -1)">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="achievements-grid" id="achieve-cards">
             <div class="achievement-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.3">
                 <div class="achievement-card-glow"></div>
                 <div class="achievement-content">
                     <div class="achievement-icon">🥇</div>
                     <div class="achievement-info">
                         <h4>Kaggle Competitions</h4>
-                        <p><strong>Top 150/10,760</strong> in Wellbore Geology Prediction. <strong>Top 25/348</strong> in Formula 1 Race Result Classification.</p>
+                        <ul style="color: #b0c4de; line-height: 1.6; margin-top: 0.8rem; font-size: 0.95rem; padding-left: 1.2rem; transform: translateZ(20px);">
+                            <li style="margin-bottom: 0.4rem;"><strong>Top 1.4% (150/10,760)</strong> in the global Wellbore Geology Prediction Challenge.</li>
+                            <li style="margin-bottom: 0.4rem;">Placed <strong>Top 25/348</strong> in Formula 1 Race Result Classification by engineering complex temporal predictive features.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -1605,7 +1632,11 @@
                     <div class="achievement-icon">🚀</div>
                     <div class="achievement-info">
                         <h4>Hackathon Wins</h4>
-                        <p><strong>1st Runner-up</strong> at GenAI Fusion'25, <strong>Zonal Champion</strong> at HackArena 2.0 (IIIT Delhi), and Top 10/1,000 at BIT MESRA Hack'24.</p>
+                        <ul style="color: #b0c4de; line-height: 1.6; margin-top: 0.8rem; font-size: 0.95rem; padding-left: 1.2rem; transform: translateZ(20px);">
+                            <li style="margin-bottom: 0.4rem;"><strong>1st Runner-up</strong> at GenAI Fusion'25 for an innovative multi-agent AI solution.</li>
+                            <li style="margin-bottom: 0.4rem;"><strong>Zonal Champion</strong> at HackArena 2.0 (IIIT Delhi).</li>
+                            <li style="margin-bottom: 0.4rem;"><strong>Top 1% (10/1,000)</strong> at BIT MESRA Hack'24.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -1616,9 +1647,17 @@
                     <div class="achievement-icon">🌟</div>
                     <div class="achievement-info">
                         <h4>Leadership Impact</h4>
-                        <p>Leading MSRIT'28 & '29 communities (3.5K+ active members), Founding Core Member AWS Cloud Club, and Webmaster IEEE CIS.</p>
+                        <ul style="color: #b0c4de; line-height: 1.6; margin-top: 0.8rem; font-size: 0.95rem; padding-left: 1.2rem; transform: translateZ(20px);">
+                            <li style="margin-bottom: 0.4rem;">Spearheading technical growth for MSRIT'28 & '29 communities with <strong>3.5K+ active members</strong>.</li>
+                            <li style="margin-bottom: 0.4rem;"><strong>Founding Core Member</strong> of the AWS Cloud Club, organizing cloud architecture workshops.</li>
+                            <li style="margin-bottom: 0.4rem;">Elected <strong>Webmaster for IEEE CIS</strong>, managing digital presence and technical outreach.</li>
+                        </ul>
                     </div>
                 </div>
+            </div>
+        </div>
+            <div class="scroll-btn" id="scroll-right-achieve" onclick="scrollCarousel('achieve-cards', 1)">
+                <i class="fas fa-chevron-right"></i>
             </div>
         </div>
     </section>
