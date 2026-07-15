@@ -13,10 +13,10 @@ const projectsData = [
     {
         id: 'reggraph-ai',
         name: 'RegGraph-AI 🕸️',
-        description: 'AI-powered regulatory knowledge graph system for intelligent compliance mapping, automated regulation analysis, and graph-based reasoning over legal and policy documents.',
+        description: 'AI Regulatory Knowledge Graph for compliance mapping & automated legal document analysis.',
         icon: 'fas fa-project-diagram',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/RegGraph-AI',
-        technologies: ["Next.js", "PostgreSQL", "FastAPI", "LangGraph", "Chroma DB", "NLP"],
+        technologies: ["Next.js", "PostgreSQL", "FastAPI", "LangGraph", "Chroma DB", "NLP", "Docker"],
         color: '#fe428e',
         categories: ["ai"]
     },
@@ -26,7 +26,7 @@ const projectsData = [
         description: 'Intelligent Android background agent that proactively automates user workflows using contextual situation modeling, adaptive decision-making, autonomous action execution, Google API integrations, memory systems, and on-device AI-powered orchestration.',
         icon: 'fas fa-mobile-alt',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/ContextOS',
-        technologies: ["Kotlin", "Jetpack Compose", "Android SDK", "RoomDB", "Groq", "On-device AI"],
+        technologies: ["Kotlin", "Jetpack Compose", "Android SDK", "RoomDB", "Groq", "On-device AI", "CI/CD"],
         color: '#7c3aed',
         categories: ["ai"]
     },
@@ -36,7 +36,7 @@ const projectsData = [
         description: 'AI-powered SOC analyst system that performs real-time threat detection using SNN, LNN, and XGBoost ensemble models with behavioral profiling, sandbox isolation, feedback-driven retraining, and full microservices architecture.',
         icon: 'fas fa-shield-alt',
         githubUrl: '#',
-        technologies: ["SNN", "LNN", "XGBoost", "Microservices", "Cybersecurity"],
+        technologies: ["SNN", "LNN", "XGBoost", "Microservices", "Docker", "Cybersecurity"],
         color: '#ff3b5c',
         categories: ["ai", "data"]
     },
@@ -46,7 +46,7 @@ const projectsData = [
         description: 'Intelligent Git repository analysis platform that performs deep code scanning, technical debt detection, health scoring, and real-time monitoring using MCP and AI-powered synthesis for actionable developer insights.',
         icon: 'fab fa-git-alt',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/GITHOPPER',
-        technologies: ["MCP", "Amazon Bedrock", "React", "Flask", "Code Analytics"],
+        technologies: ["MCP", "Amazon Bedrock", "React", "Flask", "Code Analytics", "CI/CD"],
         color: '#00b894',
         categories: ["ai", "web"]
     },
@@ -56,7 +56,7 @@ const projectsData = [
         description: 'Interactive AI benchmark platform that compares multiple LLMs through real-time game-based challenges and reasoning tasks to evaluate model intelligence, speed, and accuracy.',
         icon: 'fas fa-gamepad',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/LLM_BENCHMARK_GAME',
-        technologies: ["LLM", "LLMOps", "Microservices", "Groq"],
+        technologies: ["LLM", "LLMOps", "Microservices", "Groq", "CI/CD"],
         color: '#6e40c9',
         categories: ["ai", "web"]
     },
@@ -76,7 +76,7 @@ const projectsData = [
         description: 'Real-time hackathon management dashboard for event tracking, analytics, and participant intelligence.',
         icon: 'fas fa-chart-bar',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/Hackathon-Dashboard',
-        technologies: ["React", "Node.js", "MongoDB", "FullCalendar.js", "Express"],
+        technologies: ["React", "Node.js", "MongoDB", "FullCalendar.js", "Express", "CI/CD"],
         color: '#3178c6',
         categories: ["web"]
     },
@@ -96,7 +96,7 @@ const projectsData = [
         description: 'AI-powered smart clipboard system to capture, analyze, and understand copied content using ML & DL.',
         icon: 'fas fa-clipboard',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/ClipBait',
-        technologies: ["Node.js", "HuggingFace", "PostgreSQL", "FastAPI", "WebSockets", "Tauri Rust", "React Native"],
+        technologies: ["Node.js", "HuggingFace", "PostgreSQL", "FastAPI", "WebSockets", "Tauri Rust", "React Native", "CI/CD"],
         color: '#ff3b5c',
         categories: ["ai", "web"]
     },
@@ -106,7 +106,7 @@ const projectsData = [
         description: 'ML & DL based real-time blood donor-recipient intelligent matching and healthcare support system.',
         icon: 'fas fa-hand-holding-heart',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/DonorConnectT',
-        technologies: ["Next.js", "Geospatial Querying", "RBAC", "JWT", "REST APIs", "WebSocket"],
+        technologies: ["Next.js", "Geospatial Querying", "RBAC", "JWT", "REST APIs", "WebSocket", "CI/CD"],
         color: '#f44336',
         categories: ["ai", "web"]
     },
