@@ -1429,7 +1429,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">MUKUL.DEV</div>
+            <div class="logo">MUKUL.AI</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -1443,31 +1443,77 @@
     </nav>
     
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero" style="padding-top: 120px;">
         <div class="hero-content">
             <h1 class="hero-title" style="position: relative; display: inline-block;">MUKUL PRASAD</h1>
-            <div class="hero-subtitle">🤖 AI · ML · Full Stack · Multi-Agent Systems</div>
-            <div class="hero-terminal">
+            <div class="hero-subtitle">Architecting Intelligent Systems | Crafting Digital Realities | Solving the Impossible</div>
+            <div class="hero-terminal" style="width: 100%; min-width: 800px; text-align: left;">
                 <div class="terminal-header">
                     <div class="terminal-dots">
                         <div class="dot red"></div>
                         <div class="dot yellow"></div>
                         <div class="dot green"></div>
                     </div>
-                    <div class="terminal-title">mukul@hacker-lab:~$</div>
+                    <div class="terminal-title">mukul@neural-nexus:~$</div>
                 </div>
-                <div class="terminal-content">
-                    <div class="terminal-inner">
-                        <div><span class="prompt">$</span> whoami</div>
-                        <div><span class="highlight">Mukul Prasad</span> – <span class="highlight">Machine Learning Engineer</span> @ FlyRank | <span class="highlight">CS Scholar</span> @ MSRIT</div>
-                        <div><span class="prompt">$</span> cat expertise.txt</div>
-                        <div><span class="highlight">AI Architecture</span> | Scalable <span class="highlight">Multi-Agent Systems</span> | Full-Stack Development</div>
-                        <div><span class="prompt">$</span> echo $VISION</div>
-                        <div class="highlight">Architecting the future of intelligent systems through cutting-edge AI. 🚀</div>
-                        <div><span class="prompt">$</span> <span class="typing-cursor">_</span></div>
-                    </div>
+                <div class="terminal-content" id="dynamic-terminal" style="text-align: left; font-size: 1.1rem; line-height: 2;">
+                    <!-- Content will be injected dynamically via JS -->
                 </div>
             </div>
+            
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const terminal = document.getElementById('dynamic-terminal');
+                    const commands = [
+                        { cmd: 'whoami', out: '<span class="highlight">Mukul Prasad</span> – <span class="highlight">Machine Learning Engineer</span> | <span class="highlight">AI Researcher</span> | <span class="highlight">Open Source Mentor</span>' },
+                        { cmd: 'cat expertise.txt', out: '<span class="highlight">Deep Learning & PyTorch</span> | <span class="highlight">Graph AI & RAG Pipelines</span> | <span class="highlight">Scalable Multi-Agent Systems</span>' },
+                        { cmd: './deploy_ai_models.sh --target=production', out: 'Initializing neural weights... [OK]<br>Optimizing inference pipeline... [OK]<br><span style="color: #00ff00">Success: Models deployed with sub-2s latency! ⚡</span>' },
+                        { cmd: 'echo $VISION', out: '<span class="highlight">Pioneering the next generation of predictive AI and autonomous agents. 🚀</span>' }
+                    ];
+                    
+                    let htmlContent = '';
+                    let i = 0;
+                    
+                    function typeCommand() {
+                        if (i >= commands.length) {
+                            terminal.innerHTML = htmlContent + '<div><span class="prompt">$</span> <span class="typing-cursor" style="animation: blink 1s step-end infinite;">_</span></div>';
+                            return;
+                        }
+                        
+                        const current = commands[i];
+                        let cmdText = '';
+                        let charIndex = 0;
+                        
+                        terminal.innerHTML = htmlContent + '<div><span class="prompt">$</span> <span id="current-cmd"></span><span class="typing-cursor" style="animation: blink 1s step-end infinite;">_</span></div>';
+                        const currentCmdSpan = document.getElementById('current-cmd');
+                        
+                        const typeInterval = setInterval(() => {
+                            cmdText += current.cmd[charIndex];
+                            currentCmdSpan.textContent = cmdText;
+                            charIndex++;
+                            
+                            if (charIndex === current.cmd.length) {
+                                clearInterval(typeInterval);
+                                setTimeout(() => {
+                                    htmlContent += `<div><span class="prompt">$</span> ${current.cmd}</div><div>${current.out}</div>`;
+                                    terminal.innerHTML = htmlContent;
+                                    i++;
+                                    setTimeout(typeCommand, 600);
+                                }, 400);
+                            }
+                        }, 50);
+                    }
+                    
+                    setTimeout(typeCommand, 1000);
+                    
+                    if (!document.getElementById('blink-style')) {
+                        const style = document.createElement('style');
+                        style.id = 'blink-style';
+                        style.innerHTML = '@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }';
+                        document.head.appendChild(style);
+                    }
+                });
+            </script>
             
             <div class="tech-icons">
                 <div class="tech-icon" title="Python"><i class="fab fa-python"></i></div>
@@ -1491,7 +1537,10 @@
                 <p>Selected as a Mentor for GSSoC'26 from among 135 mentors globally. I actively lead technical communities with over 3.5K+ active members across MSRIT'28 & '29 and serve as a Founding Core Member of the AWS Cloud Club.</p>
                 
                 <h3>🚀 Innovation Driven</h3>
-                <p>I constantly seek opportunities to push the boundaries of intelligent systems, actively competing on Kaggle (Top 150 globally) and winning multiple national-level hackathons like GenAI Fusion'25 and HackArena 2.0.</p>
+                <p>I constantly seek opportunities to push the boundaries of intelligent systems, actively competing on Kaggle (ranked Top 150 globally among top data scientists in complex machine learning challenges) and acing multiple national-level hackathons like GenAI Fusion'25 and HackArena 2.0.</p>
+                
+                <h3>♟️ Beyond the Screen</h3>
+                <p>When I'm not architecting AI solutions or writing code, I love playing chess (max rating 943) and enjoy a good game of football to stay active, strategic, and sharp.</p>
             </div>
             
             <div class="stats-grid">
@@ -1506,15 +1555,6 @@
                 <div class="stat-item">
                     <div class="stat-number" data-target="35">0</div>
                     <div class="stat-label">Technologies</div>
-                </div>
-                <div class="stat-item">
-                    <div class="dedication-container">
-                        <div class="dedication-progress">
-                            <div class="dedication-bar" data-target="100"></div>
-                        </div>
-                        <div class="dedication-percentage">100%</div>
-                    </div>
-                    <div class="stat-label">Dedication to Craft</div>
                 </div>
             </div>
         </div>
@@ -1674,190 +1714,31 @@
         <div class="neural-network-bg"></div>
         
         <h2 class="section-title">🚀 Technical Expertise</h2>
-        <div class="expertise-container">
-            <!-- AI/ML Development -->
-            <div class="expertise-category" data-category="AI/ML" data-delay="0">
-                <div class="category-header">
-                    <div class="category-icon">🧠</div>
-                    <h4>🧠 AI/ML Development</h4>
-                    <div class="live-indicator">
-                        <div class="indicator-bar">
-                            <div class="indicator-fill" data-progress="85"></div>
-                            <div class="indicator-pulse"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-items">
-                    <div class="skill-item" data-delay="100">
-                        <div class="skill-icon">🤖</div>
-                        <div class="skill-info">
-                            <h5>AI Solutions</h5>
-                            <p>Creating intelligent systems for Syncity and HealthCare Dashboard</p>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-delay="200">
-                        <div class="skill-icon">📊</div>
-                        <div class="skill-info">
-                            <h5>Machine Learning</h5>
-                            <p>Implementing advanced models and data pipelines</p>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-delay="300">
-                        <div class="skill-icon">🧠</div>
-                        <div class="skill-info">
-                            <h5>Neural Networks</h5>
-                            <p>Deep learning architectures and model optimization</p>
-                        </div>
-                    </div>
-                </div>
+        <div class="expertise-container compact-cards" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 20px; align-items: stretch; margin-top: 2rem;">
+            <div class="expertise-card" style="flex: 1 1 180px; background: rgba(16, 20, 30, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(0, 204, 255, 0.2); border-radius: 15px; padding: 2rem 1.5rem; text-align: center; position: relative; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 180px;" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.3">
+                <div class="card-glow" style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0,204,255,0.1) 0%, rgba(0,0,0,0) 70%); opacity: 0; transition: opacity 0.3s ease;"></div>
+                <div class="card-icon" style="font-size: 3rem; margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(0,204,255,0.5));">🧠</div>
+                <h4 style="color: #fff; font-size: 1.1rem; font-weight: 600; margin: 0; letter-spacing: 0.5px;">AI/ML Development</h4>
             </div>
-            
-            <!-- Cloud Computing -->
-            <div class="expertise-category" data-category="Cloud" data-delay="200">
-                <div class="category-header">
-                    <div class="category-icon">☁️</div>
-                    <h4>☁️ Cloud Computing</h4>
-                    <div class="live-indicator">
-                        <div class="indicator-bar">
-                            <div class="indicator-fill" data-progress="90"></div>
-                            <div class="indicator-pulse"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-items">
-                    <div class="skill-item" data-delay="100">
-                        <div class="skill-icon">☁️</div>
-                        <div class="skill-info">
-                            <h5>AWS Services</h5>
-                            <p>Working with cloud infrastructure and services</p>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-delay="200">
-                        <div class="skill-icon">⚡</div>
-                        <div class="skill-info">
-                            <h5>Scalability</h5>
-                            <p>Building high-performance cloud applications</p>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-delay="300">
-                        <div class="skill-icon">🔧</div>
-                        <div class="skill-info">
-                            <h5>DevOps</h5>
-                            <p>CI/CD pipelines and infrastructure automation</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="expertise-card" style="flex: 1 1 180px; background: rgba(16, 20, 30, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(0, 204, 255, 0.2); border-radius: 15px; padding: 2rem 1.5rem; text-align: center; position: relative; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 180px;" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.3">
+                <div class="card-glow" style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0,204,255,0.1) 0%, rgba(0,0,0,0) 70%); opacity: 0; transition: opacity 0.3s ease;"></div>
+                <div class="card-icon" style="font-size: 3rem; margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(0,204,255,0.5));">☁️</div>
+                <h4 style="color: #fff; font-size: 1.1rem; font-weight: 600; margin: 0; letter-spacing: 0.5px;">Cloud Computing</h4>
             </div>
-            
-            <!-- Full Stack Development -->
-            <div class="expertise-category" data-category="Development" data-delay="400">
-                <div class="category-header">
-                    <div class="category-icon">💻</div>
-                    <h4>💻 Full Stack Development</h4>
-                    <div class="live-indicator">
-                        <div class="indicator-bar">
-                            <div class="indicator-fill" data-progress="95"></div>
-                            <div class="indicator-pulse"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-items">
-                    <div class="skill-item" data-delay="100">
-                        <div class="skill-icon">🌐</div>
-                        <div class="skill-info">
-                            <h5>Web Development</h5>
-                            <p>Building modern web applications with latest technologies</p>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-delay="200">
-                        <div class="skill-icon">📱</div>
-                        <div class="skill-info">
-                            <h5>UI/UX Design</h5>
-                            <p>Crafting responsive and user-friendly interfaces</p>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-delay="300">
-                        <div class="skill-icon">🚀</div>
-                        <div class="skill-info">
-                            <h5>Performance</h5>
-                            <p>Optimizing applications for speed and efficiency</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="expertise-card" style="flex: 1 1 180px; background: rgba(16, 20, 30, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(0, 204, 255, 0.2); border-radius: 15px; padding: 2rem 1.5rem; text-align: center; position: relative; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 180px;" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.3">
+                <div class="card-glow" style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0,204,255,0.1) 0%, rgba(0,0,0,0) 70%); opacity: 0; transition: opacity 0.3s ease;"></div>
+                <div class="card-icon" style="font-size: 3rem; margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(0,204,255,0.5));">💻</div>
+                <h4 style="color: #fff; font-size: 1.1rem; font-weight: 600; margin: 0; letter-spacing: 0.5px;">Full Stack Development</h4>
             </div>
-            
-            <!-- Data Structures & Algorithms -->
-            <div class="expertise-category" data-category="DSA" data-delay="600">
-                <div class="category-header">
-                    <div class="category-icon">🔧</div>
-                    <h4>🔧 Data Structures & Algorithms</h4>
-                    <div class="live-indicator">
-                        <div class="indicator-bar">
-                            <div class="indicator-fill" data-progress="75"></div>
-                            <div class="indicator-pulse"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-items">
-                    <div class="skill-item" data-delay="100">
-                        <div class="skill-icon">💡</div>
-                        <div class="skill-info">
-                            <h5>Algorithm Analysis</h5>
-                            <p>Mastering time and space complexity analysis</p>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-delay="200">
-                        <div class="skill-icon">🔄</div>
-                        <div class="skill-info">
-                            <h5>Data Structures</h5>
-                            <p>Implementing and optimizing data structures</p>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-delay="300">
-                        <div class="skill-icon">🎯</div>
-                        <div class="skill-info">
-                            <h5>Problem Solving</h5>
-                            <p>Solving complex problems with efficient algorithms</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="expertise-card" style="flex: 1 1 180px; background: rgba(16, 20, 30, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(0, 204, 255, 0.2); border-radius: 15px; padding: 2rem 1.5rem; text-align: center; position: relative; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 180px;" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.3">
+                <div class="card-glow" style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0,204,255,0.1) 0%, rgba(0,0,0,0) 70%); opacity: 0; transition: opacity 0.3s ease;"></div>
+                <div class="card-icon" style="font-size: 3rem; margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(0,204,255,0.5));">🔧</div>
+                <h4 style="color: #fff; font-size: 1.1rem; font-weight: 600; margin: 0; letter-spacing: 0.5px;">Data Structures & Algorithms</h4>
             </div>
-            
-            <!-- Ethical Hacking -->
-            <div class="expertise-category" data-category="Hacking" data-delay="800">
-                <div class="category-header">
-                    <div class="category-icon">🛡️</div>
-                    <h4>🛡️ Ethical Hacking</h4>
-                    <div class="live-indicator">
-                        <div class="indicator-bar">
-                            <div class="indicator-fill" data-progress="80"></div>
-                            <div class="indicator-pulse"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-items">
-                    <div class="skill-item" data-delay="100">
-                        <div class="skill-icon">🔒</div>
-                        <div class="skill-info">
-                            <h5>Penetration Testing</h5>
-                            <p>Identifying and exploiting security vulnerabilities</p>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-delay="200">
-                        <div class="skill-icon">🎯</div>
-                        <div class="skill-info">
-                            <h5>Network Security</h5>
-                            <p>Securing networks and systems from threats</p>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-delay="300">
-                        <div class="skill-icon">🔍</div>
-                        <div class="skill-info">
-                            <h5>Cybersecurity</h5>
-                            <p>Implementing security best practices and protocols</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="expertise-card" style="flex: 1 1 180px; background: rgba(16, 20, 30, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(0, 204, 255, 0.2); border-radius: 15px; padding: 2rem 1.5rem; text-align: center; position: relative; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 180px;" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.3">
+                <div class="card-glow" style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0,204,255,0.1) 0%, rgba(0,0,0,0) 70%); opacity: 0; transition: opacity 0.3s ease;"></div>
+                <div class="card-icon" style="font-size: 3rem; margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(0,204,255,0.5));">🛡️</div>
+                <h4 style="color: #fff; font-size: 1.1rem; font-weight: 600; margin: 0; letter-spacing: 0.5px;">Ethical Hacking</h4>
             </div>
         </div>
     </section>
@@ -1865,6 +1746,63 @@
     <!-- Skills Section -->
     <section id="skills" class="section">
         <h2 class="section-title">Skills & Technologies</h2>
+        <style>
+            .skill-tag.interactive-skill {
+                position: relative;
+                cursor: help;
+                transition: all 0.3s ease;
+            }
+            .skill-tag.interactive-skill:hover {
+                transform: translateY(-2px);
+                background: rgba(0, 204, 255, 0.2);
+                border-color: #00ccff;
+            }
+            .skill-tooltip {
+                visibility: hidden;
+                width: max-content;
+                max-width: 250px;
+                background-color: rgba(16, 20, 30, 0.95);
+                color: #b0c4de;
+                text-align: left;
+                border-radius: 8px;
+                padding: 10px;
+                position: absolute;
+                z-index: 100;
+                bottom: 125%;
+                left: 50%;
+                transform: translateX(-50%);
+                opacity: 0;
+                transition: opacity 0.3s, bottom 0.3s;
+                font-size: 0.85rem;
+                font-weight: normal;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+                border: 1px solid rgba(0, 204, 255, 0.3);
+                pointer-events: none;
+                line-height: 1.4;
+            }
+            .skill-tooltip::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: rgba(0, 204, 255, 0.3) transparent transparent transparent;
+            }
+            .skill-tag.interactive-skill:hover .skill-tooltip {
+                visibility: visible;
+                opacity: 1;
+                bottom: 135%;
+            }
+            .tooltip-title {
+                color: #00ccff;
+                font-weight: bold;
+                display: block;
+                margin-bottom: 4px;
+                font-size: 0.9rem;
+            }
+        </style>
         <div class="skills-grid">
             <div class="skill-category">
                 <div class="skill-header">
@@ -1872,13 +1810,13 @@
                     <div class="skill-title">Programming & Web</div>
                 </div>
                 <div class="skill-tags">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">C++</span>
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">TypeScript</span>
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">REST APIs</span>
+                    <span class="skill-tag interactive-skill">Python<span class="skill-tooltip"><span class="tooltip-title">Used in:</span>KisaanMitra, ClipBait, RegGraph AI, NovaPulse, Project Astraeus</span></span>
+                    <span class="skill-tag interactive-skill">C++<span class="skill-tooltip"><span class="tooltip-title">Status:</span>Academic/Theoretical Knowledge</span></span>
+                    <span class="skill-tag interactive-skill">Java<span class="skill-tooltip"><span class="tooltip-title">Status:</span>Academic/Theoretical Knowledge</span></span>
+                    <span class="skill-tag interactive-skill">TypeScript<span class="skill-tooltip"><span class="tooltip-title">Status:</span>Academic/Theoretical Knowledge</span></span>
+                    <span class="skill-tag interactive-skill">Node.js<span class="skill-tooltip"><span class="tooltip-title">Used in:</span>ClipBait, DonorConnect, Hackathon Dashboard</span></span>
+                    <span class="skill-tag interactive-skill">React<span class="skill-tooltip"><span class="tooltip-title">Used in:</span>GitHopper, Project Astraeus (CesiumJS), Hackathon Dashboard, DonorConnect</span></span>
+                    <span class="skill-tag interactive-skill">REST APIs<span class="skill-tooltip"><span class="tooltip-title">Used in:</span>VaaYa, DonorConnect</span></span>
                 </div>
             </div>
             
@@ -1888,13 +1826,13 @@
                     <div class="skill-title">AI/ML Stack</div>
                 </div>
                 <div class="skill-tags">
-                    <span class="skill-tag">PyTorch</span>
-                    <span class="skill-tag">TensorFlow</span>
-                    <span class="skill-tag">Hugging Face</span>
-                    <span class="skill-tag">LangChain / LangGraph</span>
-                    <span class="skill-tag">RAG Pipelines</span>
-                    <span class="skill-tag">Multi-Agent Systems</span>
-                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag interactive-skill">PyTorch<span class="skill-tooltip"><span class="tooltip-title">Used in:</span>Project Astraeus</span></span>
+                    <span class="skill-tag interactive-skill">TensorFlow<span class="skill-tooltip"><span class="tooltip-title">Used in:</span>KisaanMitra, VaaYa</span></span>
+                    <span class="skill-tag interactive-skill">Hugging Face<span class="skill-tooltip"><span class="tooltip-title">Used in:</span>ClipBait</span></span>
+                    <span class="skill-tag interactive-skill">LangChain / LangGraph<span class="skill-tooltip"><span class="tooltip-title">Used in:</span>RegGraph AI</span></span>
+                    <span class="skill-tag interactive-skill">RAG Pipelines<span class="skill-tooltip"><span class="tooltip-title">Used in:</span>RegGraph AI</span></span>
+                    <span class="skill-tag interactive-skill">Multi-Agent Systems<span class="skill-tooltip"><span class="tooltip-title">Used in:</span>KisaanMitra, NovaPulse</span></span>
+                    <span class="skill-tag interactive-skill">Scikit-learn<span class="skill-tooltip"><span class="tooltip-title">Status:</span>Academic/Theoretical Knowledge</span></span>
                 </div>
             </div>
             
@@ -1904,12 +1842,12 @@
                     <div class="skill-title">Cloud & MLOps</div>
                 </div>
                 <div class="skill-tags">
-                    <span class="skill-tag">AWS (Lambda, S3, EC2)</span>
-                    <span class="skill-tag">AWS SageMaker</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">CI/CD</span>
-                    <span class="skill-tag">Git / GitHub</span>
-                    <span class="skill-tag">Model Deployment</span>
+                    <span class="skill-tag interactive-skill">AWS (Lambda, S3, EC2)<span class="skill-tooltip"><span class="tooltip-title">Status:</span>Academic/Theoretical Knowledge</span></span>
+                    <span class="skill-tag interactive-skill">AWS SageMaker<span class="skill-tooltip"><span class="tooltip-title">Status:</span>Academic/Theoretical Knowledge</span></span>
+                    <span class="skill-tag interactive-skill">Docker<span class="skill-tooltip"><span class="tooltip-title">Status:</span>Academic/Theoretical Knowledge</span></span>
+                    <span class="skill-tag interactive-skill">CI/CD<span class="skill-tooltip"><span class="tooltip-title">Status:</span>Academic/Theoretical Knowledge</span></span>
+                    <span class="skill-tag interactive-skill">Git / GitHub<span class="skill-tooltip"><span class="tooltip-title">Used in:</span>GitHopper</span></span>
+                    <span class="skill-tag interactive-skill">Model Deployment<span class="skill-tooltip"><span class="tooltip-title">Used in:</span>LLM Fight Club</span></span>
                 </div>
             </div>
             
@@ -1919,12 +1857,12 @@
                     <div class="skill-title">Databases</div>
                 </div>
                 <div class="skill-tags">
-                    <span class="skill-tag">PostgreSQL</span>
-                    <span class="skill-tag">MongoDB</span>
-                    <span class="skill-tag">Redis</span>
-                    <span class="skill-tag">Supabase</span>
-                    <span class="skill-tag">Graph DB (Neo4j)</span>
-                    <span class="skill-tag">Hive / HBase</span>
+                    <span class="skill-tag interactive-skill">PostgreSQL<span class="skill-tooltip"><span class="tooltip-title">Used in:</span>KisaanMitra, ClipBait, RegGraph AI</span></span>
+                    <span class="skill-tag interactive-skill">MongoDB<span class="skill-tooltip"><span class="tooltip-title">Used in:</span>DonorConnect, VaaYa, Hackathon Dashboard</span></span>
+                    <span class="skill-tag interactive-skill">Redis<span class="skill-tooltip"><span class="tooltip-title">Used in:</span>KisaanMitra</span></span>
+                    <span class="skill-tag interactive-skill">Supabase<span class="skill-tooltip"><span class="tooltip-title">Status:</span>Academic/Theoretical Knowledge</span></span>
+                    <span class="skill-tag interactive-skill">Graph DB (Neo4j)<span class="skill-tooltip"><span class="tooltip-title">Status:</span>Academic/Theoretical Knowledge</span></span>
+                    <span class="skill-tag interactive-skill">Hive / HBase<span class="skill-tooltip"><span class="tooltip-title">Status:</span>Academic/Theoretical Knowledge</span></span>
                 </div>
             </div>
         </div>
