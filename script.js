@@ -13,7 +13,7 @@ const projectsData = [
     {
         id: 'reggraph-ai',
         name: 'RegGraph-AI 🕸️',
-        description: 'AI Regulatory Knowledge Graph for compliance mapping & automated legal document analysis.',
+        description: 'AI-powered regulatory knowledge graph system for intelligent compliance mapping, automated regulation analysis, and graph-based reasoning over legal and policy documents.',
         icon: 'fas fa-project-diagram',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/RegGraph-AI',
         technologies: ["Next.js", "PostgreSQL", "FastAPI", "LangGraph", "Chroma DB", "NLP"],
@@ -253,6 +253,16 @@ function generateProjectCards(filterCategory = 'all') {
     const filteredProjects = filterCategory === 'all' 
         ? projectsData 
         : projectsData.filter(p => p.categories && p.categories.includes(filterCategory));
+
+    // Also update filter buttons UI if present
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        if (btn.dataset.filter === filterCategory) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+
 
     filteredProjects.forEach((p, idx) => {
         const card = document.createElement('a');
@@ -2907,6 +2917,17 @@ window.scrollCarousel = function(containerId, direction) {
 // Horizontal Scroll Carousel Logic
 function initCarousels() {
     const projectsGrid = document.getElementById('projects-grid');
+    
+    // Add event listeners for project filters
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const filter = e.target.dataset.filter;
+            generateProjectCards(filter);
+            
+            // Reset scroll position
+            if (projectsGrid) projectsGrid.scrollLeft = 0;
+        });
+    });
     const scrollLeftBtn = document.getElementById('scroll-left');
     const scrollRightBtn = document.getElementById('scroll-right');
 
