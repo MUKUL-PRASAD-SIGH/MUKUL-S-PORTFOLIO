@@ -908,7 +908,13 @@ section {
     width: 100%;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    cursor: grab;
 }
+
+.projects-grid:active {
+    cursor: grabbing;
+}
+
 .projects-grid::-webkit-scrollbar {
     height: 8px;
 }

@@ -598,63 +598,7 @@ projectStyle.textContent = `
         box-shadow: 0 0 0 6px rgba(0, 204, 255, 0.25);
     }
     
-    /* Glitch Animation for Hero Title */
-    .hero-title {
-        position: relative;
-        display: inline-block;
-        animation: glitch 3s infinite alternate;
-        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(255, 0, 255, 0.5);
-    }
-    
-    .hero-title::before, .hero-title::after {
-        content: "MUKUL PRASAD";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        overflow: hidden;
-        background: transparent;
-        color: white;
-        clip: rect(0, 900px, 0, 0);
-    }
-    
-    .hero-title::before {
-        left: -2px;
-        text-shadow: 2px 0 #ff00ff;
-        animation: glitch-anim 2.5s infinite linear alternate-reverse;
-    }
-    
-    .hero-title::after {
-        left: 2px;
-        text-shadow: -2px 0 #00ffff;
-        animation: glitch-anim-2 3s infinite linear alternate-reverse;
-    }
-    
-    @keyframes glitch-anim {
-        0% { clip: rect(10px, 9999px, 86px, 0); transform: skew(0.5deg); }
-        5% { clip: rect(20px, 9999px, 5px, 0); transform: skew(0.1deg); }
-        10% { clip: rect(50px, 9999px, 70px, 0); transform: skew(0.3deg); }
-        15% { clip: rect(80px, 9999px, 15px, 0); transform: skew(0.2deg); }
-        20% { clip: rect(25px, 9999px, 45px, 0); transform: skew(0.7deg); }
-        25% { clip: rect(12px, 9999px, 80px, 0); transform: skew(0.4deg); }
-        30% { clip: rect(66px, 9999px, 33px, 0); transform: skew(0.8deg); }
-        35% { clip: rect(98px, 9999px, 12px, 0); transform: skew(0.1deg); }
-        40% { clip: rect(10px, 9999px, 90px, 0); transform: skew(0.9deg); }
-        100% { clip: rect(2px, 9999px, 86px, 0); transform: skew(0.5deg); }
-    }
-    
-    @keyframes glitch-anim-2 {
-        0% { clip: rect(35px, 9999px, 2px, 0); transform: skew(0.8deg); }
-        5% { clip: rect(4px, 9999px, 30px, 0); transform: skew(0.3deg); }
-        10% { clip: rect(70px, 9999px, 15px, 0); transform: skew(0.6deg); }
-        15% { clip: rect(22px, 9999px, 60px, 0); transform: skew(0.2deg); }
-        20% { clip: rect(50px, 9999px, 20px, 0); transform: skew(0.9deg); }
-        25% { clip: rect(15px, 9999px, 90px, 0); transform: skew(0.1deg); }
-        30% { clip: rect(88px, 9999px, 40px, 0); transform: skew(0.4deg); }
-        35% { clip: rect(5px, 9999px, 50px, 0); transform: skew(0.7deg); }
-        40% { clip: rect(40px, 9999px, 80px, 0); transform: skew(0.5deg); }
-        100% { clip: rect(10px, 9999px, 20px, 0); transform: skew(0.6deg); }
-    }
+
 
     /* Prefers-reduced-motion support */
     @media (prefers-reduced-motion: reduce) { 
@@ -2897,6 +2841,39 @@ function initCarousels() {
         scrollLeftBtn.addEventListener('click', () => window.scrollCarousel('projects-grid', -1));
         scrollRightBtn.addEventListener('click', () => window.scrollCarousel('projects-grid', 1));
     }
+
+    // Advanced Drag to Scroll for all grids
+    const grids = document.querySelectorAll('.projects-grid');
+    grids.forEach(slider => {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.style.scrollSnapType = 'none'; // Disable snap while dragging for smoother feel
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.style.scrollSnapType = 'x mandatory';
+        });
+        
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.style.scrollSnapType = 'x mandatory';
+        });
+        
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll-fast multiplier
+            slider.scrollLeft = scrollLeft - walk;
+        });
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
