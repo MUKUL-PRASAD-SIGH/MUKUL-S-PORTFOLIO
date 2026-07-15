@@ -16,7 +16,7 @@ const projectsData = [
         description: 'AI Regulatory Knowledge Graph for compliance mapping & automated legal document analysis.',
         icon: 'fas fa-project-diagram',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/RegGraph-AI',
-        technologies: ["Next.js", "PostgreSQL", "FastAPI", "LangGraph", "Chroma DB", "NLP", "Docker"],
+        technologies: ["Next.js", "PostgreSQL", "FastAPI", "LangGraph", "Chroma DB", "NLP", "Docker", "TypeScript"],
         color: '#fe428e',
         categories: ["ai"]
     },
@@ -26,7 +26,7 @@ const projectsData = [
         description: 'Intelligent Android background agent that proactively automates user workflows using contextual situation modeling, adaptive decision-making, autonomous action execution, Google API integrations, memory systems, and on-device AI-powered orchestration.',
         icon: 'fas fa-mobile-alt',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/ContextOS',
-        technologies: ["Kotlin", "Jetpack Compose", "Android SDK", "RoomDB", "Groq", "On-device AI", "CI/CD"],
+        technologies: ["Kotlin", "Jetpack Compose", "Android SDK", "RoomDB", "Groq", "On-device AI", "CI/CD", "TypeScript"],
         color: '#7c3aed',
         categories: ["ai"]
     },
@@ -36,7 +36,7 @@ const projectsData = [
         description: 'AI-powered SOC analyst system that performs real-time threat detection using SNN, LNN, and XGBoost ensemble models with behavioral profiling, sandbox isolation, feedback-driven retraining, and full microservices architecture.',
         icon: 'fas fa-shield-alt',
         githubUrl: '#',
-        technologies: ["SNN", "LNN", "XGBoost", "Microservices", "Docker", "Cybersecurity"],
+        technologies: ["SNN", "LNN", "XGBoost", "Microservices", "Docker", "Cybersecurity", "Scikit-learn"],
         color: '#ff3b5c',
         categories: ["ai", "data"]
     },
@@ -46,7 +46,7 @@ const projectsData = [
         description: 'Intelligent Git repository analysis platform that performs deep code scanning, technical debt detection, health scoring, and real-time monitoring using MCP and AI-powered synthesis for actionable developer insights.',
         icon: 'fab fa-git-alt',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/GITHOPPER',
-        technologies: ["MCP", "Amazon Bedrock", "React", "Flask", "Code Analytics", "CI/CD"],
+        technologies: ["MCP", "Amazon Bedrock", "React", "Flask", "Code Analytics", "CI/CD", "TypeScript"],
         color: '#00b894',
         categories: ["ai", "web"]
     },
@@ -56,7 +56,7 @@ const projectsData = [
         description: 'Interactive AI benchmark platform that compares multiple LLMs through real-time game-based challenges and reasoning tasks to evaluate model intelligence, speed, and accuracy.',
         icon: 'fas fa-gamepad',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/LLM_BENCHMARK_GAME',
-        technologies: ["LLM", "LLMOps", "Microservices", "Groq", "CI/CD"],
+        technologies: ["LLM", "LLMOps", "Microservices", "Groq", "CI/CD", "TypeScript", "C++", "DSA"],
         color: '#6e40c9',
         categories: ["ai", "web"]
     },
@@ -76,7 +76,7 @@ const projectsData = [
         description: 'Real-time hackathon management dashboard for event tracking, analytics, and participant intelligence.',
         icon: 'fas fa-chart-bar',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/Hackathon-Dashboard',
-        technologies: ["React", "Node.js", "MongoDB", "FullCalendar.js", "Express", "CI/CD"],
+        technologies: ["React", "Node.js", "MongoDB", "FullCalendar.js", "Express", "CI/CD", "TypeScript"],
         color: '#3178c6',
         categories: ["web"]
     },
@@ -96,7 +96,7 @@ const projectsData = [
         description: 'AI-powered smart clipboard system to capture, analyze, and understand copied content using ML & DL.',
         icon: 'fas fa-clipboard',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/ClipBait',
-        technologies: ["Node.js", "HuggingFace", "PostgreSQL", "FastAPI", "WebSockets", "Tauri Rust", "React Native", "CI/CD"],
+        technologies: ["Node.js", "HuggingFace", "PostgreSQL", "FastAPI", "WebSockets", "Tauri Rust", "React Native", "CI/CD", "TypeScript", "Scikit-learn"],
         color: '#ff3b5c',
         categories: ["ai", "web"]
     },
@@ -106,7 +106,7 @@ const projectsData = [
         description: 'ML & DL based real-time blood donor-recipient intelligent matching and healthcare support system.',
         icon: 'fas fa-hand-holding-heart',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/DonorConnectT',
-        technologies: ["Next.js", "Geospatial Querying", "RBAC", "JWT", "REST APIs", "WebSocket", "CI/CD"],
+        technologies: ["Next.js", "Geospatial Querying", "RBAC", "JWT", "REST APIs", "WebSocket", "CI/CD", "TypeScript"],
         color: '#f44336',
         categories: ["ai", "web"]
     },
@@ -116,7 +116,7 @@ const projectsData = [
         description: 'Multi-Agent System for collective agricultural intelligence — climate insights, autonomous irrigation, market intelligence, and financial inclusion for farmers.',
         icon: 'fas fa-tractor',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/KisaanMitra',
-        technologies: ["Redis", "MCP", "PostgreSQL", "TimescaleDB", "PostGIS", "TensorFlow", "Python"],
+        technologies: ["Redis", "MCP", "PostgreSQL", "TimescaleDB", "PostGIS", "TensorFlow", "Python", "Scikit-learn"],
         color: '#ffc107',
         categories: ["ai", "data"]
     },
@@ -146,7 +146,7 @@ const projectsData = [
         description: 'Advanced time-series forecasting models and dashboards for demand prediction, analytics, and trend intelligence.',
         icon: 'fas fa-chart-line',
         githubUrl: '#',
-        technologies: ["Time-Series", "Prophet", "ARIMA", "Data Analytics"],
+        technologies: ["Time-Series", "Prophet", "ARIMA", "Data Analytics", "Scikit-learn"],
         color: '#00b894',
         categories: ["data", "ai"]
     },
@@ -156,7 +156,7 @@ const projectsData = [
         description: 'Intelligent personal finance manager with budgeting automation, expense analytics, and financial insights.',
         icon: 'fas fa-wallet',
         githubUrl: '#',
-        technologies: ["Data Analytics", "Automation", "Web Dev"],
+        technologies: ["Data Analytics", "Automation", "Web Dev", "TypeScript"],
         color: '#ffc107',
         categories: ["ai", "web"]
     },
@@ -166,7 +166,7 @@ const projectsData = [
         description: 'ML-powered beauty product recommendation engine for personalized skincare and product discovery.',
         icon: 'fas fa-sparkles',
         githubUrl: '#',
-        technologies: ["Recommendation Systems", "ML", "Data Mining"],
+        technologies: ["Recommendation Systems", "ML", "Data Mining", "Scikit-learn", "C++", "DSA"],
         color: '#fe428e',
         categories: ["ai", "data"]
     },
@@ -176,7 +176,7 @@ const projectsData = [
         description: 'Real-time healthcare analytics dashboard powered by ML-driven insights and monitoring pipelines.',
         icon: 'fas fa-heartbeat',
         githubUrl: '#',
-        technologies: ["Analytics", "Dashboard", "ML"],
+        technologies: ["Analytics", "Dashboard", "ML", "TypeScript"],
         color: '#3178c6',
         categories: ["data", "web"]
     },
