@@ -2874,6 +2874,49 @@ function initCarousels() {
             slider.scrollLeft = scrollLeft - walk;
         });
     });
+
+    // Auto Scroll Logic for Clubs Experience
+    const autoScrollCarousels = document.querySelectorAll('.auto-scroll-carousel');
+    let autoScrollStopped = false;
+    
+    // Stop auto-scroll on click anywhere
+    document.addEventListener('mousedown', () => {
+        autoScrollStopped = true;
+    });
+
+    autoScrollCarousels.forEach(carousel => {
+        let scrollSpeed = 0.5; 
+        let isHovered = false;
+
+        carousel.addEventListener('mouseenter', () => isHovered = true);
+        carousel.addEventListener('mouseleave', () => isHovered = false);
+
+        function autoScroll() {
+            if (!autoScrollStopped && !isHovered) {
+                carousel.scrollLeft += scrollSpeed;
+                // Loop back to start
+                if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth - 1) {
+                    carousel.scrollLeft = 0;
+                }
+            }
+            requestAnimationFrame(autoScroll);
+        }
+        
+        // Start auto-scroll
+        requestAnimationFrame(autoScroll);
+    });
+
+    // Mouse tracking for exp-card hover glow effects
+    const expCards = document.querySelectorAll('.exp-card');
+    expCards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouseX', `${x}px`);
+            card.style.setProperty('--mouseY', `${y}px`);
+        });
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
