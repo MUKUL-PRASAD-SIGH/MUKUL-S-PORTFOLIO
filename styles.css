@@ -1234,8 +1234,8 @@ section {
 .project-description {
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.7;
-    margin: 1rem 0 1.5rem;
-    font-size: 0.95rem;
+    margin: 1.5rem 0;
+    font-size: 0.85rem;
     flex-grow: 1;
     font-weight: 300;
 }
@@ -1335,7 +1335,7 @@ section {
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1.2rem;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
@@ -1733,7 +1733,7 @@ section {
 .learning-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1.2rem;
     background: rgba(15, 23, 42, 0.7);
     border-radius: 1rem;
     border: 1px solid rgba(74, 222, 128, 0.1);
@@ -1942,7 +1942,7 @@ section {
 /* Footer */
 footer {
     text-align: center;
-    padding: 2rem;
+    padding: 1.2rem;
     background: rgba(0, 0, 0, 0.8);
 }
 
@@ -2085,6 +2085,43 @@ footer {
 }
 
 /* Projects Showcase Section - New Implementation */
+
+/* Filter Controls for Projects */
+.filter-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.filter-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.filter-btn.active {
+    background: rgba(0, 204, 255, 0.15);
+    border-color: #00ccff;
+    color: #00ccff;
+    box-shadow: 0 0 15px rgba(0, 204, 255, 0.2);
+}
+
 .projects-showcase {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -2102,14 +2139,14 @@ footer {
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    padding: 2rem;
+    padding: 1.2rem;
     position: relative;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     cursor: pointer;
     text-decoration: none;
     color: inherit;
-    min-height: 380px;
+    min-height: 250px;
     display: flex;
     flex-direction: column;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -2269,8 +2306,8 @@ footer {
 .project-description {
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.7;
-    margin: 1rem 0 1.5rem;
-    font-size: 0.95rem;
+    margin: 1.5rem 0;
+    font-size: 0.85rem;
     flex-grow: 1;
     font-weight: 300;
     text-align: center;
@@ -2741,7 +2778,7 @@ footer {
 .timeline-content p {
     color: #b0c4de;
     line-height: 1.6;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
 }
 
 @media (max-width: 900px) {
@@ -2784,7 +2821,7 @@ footer {
     background: rgba(10, 15, 30, 0.7);
     border: 1px solid rgba(255, 0, 255, 0.3);
     border-radius: 15px;
-    padding: 2rem;
+    padding: 1.2rem;
     backdrop-filter: blur(20px);
     transition: border-color 0.4s ease;
     box-shadow: inset 0 0 15px rgba(255, 0, 255, 0.1),
@@ -2851,7 +2888,7 @@ footer {
 .achievement-info p {
     color: #b0c4de;
     line-height: 1.5;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
 }
 
 .achievement-info strong {
@@ -2891,7 +2928,7 @@ footer {
     background: rgba(10, 15, 30, 0.5);
     border: 1px solid rgba(0, 255, 255, 0.3);
     border-radius: 20px;
-    padding: 2rem;
+    padding: 1.2rem;
     box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.1),
                 0 15px 35px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(30px);

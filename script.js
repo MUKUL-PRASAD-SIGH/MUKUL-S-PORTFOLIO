@@ -11,114 +11,184 @@ let rgbLight1, rgbLight2, rgbLight3, mainLight;
 // Projects Data Structure and Configuration
 const projectsData = [
     {
-        id: 'kisaanmitra',
-        name: 'KisaanMitra 🌾',
-        description: 'Multi-Agent AI System for Agricultural Optimization built to transform smallholder farmers into digitally coordinated, profit-sharing collectives using real-time intelligence and automation. Architected a 7-agent distributed system leveraging MCP protocol with Redis caching + integrated with PostgreSQL + TimescaleDB + PostGIS for time-series and geospatial analytics. Engineered AI pipelines using TensorFlow (CNNs) + Prophet forecasting.',
-        icon: 'fas fa-tractor',
-        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/KisaanMitra',
-        technologies: ['Redis', 'MCP', 'PostgreSQL', 'TimescaleDB', 'PostGIS', 'TensorFlow', 'Python'],
-        color: '#ffc107',
-        featured: true
-    },
-    {
-        id: 'clipbait',
-        name: 'ClipBait 📋',
-        description: 'AI-Powered Smart Clipboard System built to transform traditional copy-paste workflows into an intelligent, context-aware productivity pipeline with real-time AI suggestions and cross-platform sync. Architected a multi-platform distributed system with Node.js + Express backend and a Python FastAPI AI microservice integrating OpenAI + HuggingFace models. Engineered sub-100ms clipboard detection pipelines with Socket.IO/WebSockets.',
-        icon: 'fas fa-clipboard',
-        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/ClipBait',
-        technologies: ['Node.js', 'HuggingFace', 'PostgreSQL', 'FastAPI', 'WebSockets', 'Tauri Rust', 'React Native'],
-        color: '#ff3b5c',
-        featured: true
+        id: 'reggraph-ai',
+        name: 'RegGraph-AI 🕸️',
+        description: 'AI Regulatory Knowledge Graph for compliance mapping & automated legal document analysis.',
+        icon: 'fas fa-project-diagram',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/RegGraph-AI',
+        technologies: ["Next.js", "PostgreSQL", "FastAPI", "LangGraph", "Chroma DB", "NLP"],
+        color: '#fe428e',
+        categories: ["ai"]
     },
     {
         id: 'contextos',
         name: 'ContextOS ⚡',
-        description: 'Autonomous Context-Aware Mobile Intelligence System built to transform reactive smartphone interactions into a proactive AI-driven orchestration ecosystem using real-time contextual reasoning and adaptive automation. Architected a modular Android-native workflow engine leveraging Foreground Services + WorkManager. Engineered autonomous AI workflows for DND automation and contextual navigation.',
+        description: 'Intelligent Android background agent that proactively automates user workflows using contextual situation modeling, adaptive decision-making, autonomous action execution, Google API integrations, memory systems, and on-device AI-powered orchestration.',
         icon: 'fas fa-mobile-alt',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/ContextOS',
-        technologies: ['Kotlin', 'Jetpack Compose', 'Android SDK', 'RoomDB', 'Groq', 'On-device AI'],
+        technologies: ["Kotlin", "Jetpack Compose", "Android SDK", "RoomDB", "Groq", "On-device AI"],
         color: '#7c3aed',
-        featured: true
+        categories: ["ai"]
     },
     {
-        id: 'donorconnect',
-        name: 'DonorConnect ❤️',
-        description: 'ML & DL powered real-time blood donor and recipient intelligent matching system. Engineered a production-grade blood donor coordination platform (Top 10 hackathon) to bridge hospitals and donors via real-time emergency alerts. Built on NestJS + Next.js 14, implementing WebSocket-driven sub-second alert pipelines, MongoDB 2dsphere geospatial matching, and multi-channel notifications.',
-        icon: 'fas fa-hand-holding-heart',
-        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/DonorConnectT',
-        technologies: ['Next.js', 'Geospatial Querying', 'RBAC', 'JWT', 'REST APIs', 'WebSocket'],
-        color: '#f44336',
-        featured: true
+        id: 'neurosoc',
+        name: 'NeuroSOC 🧠',
+        description: 'AI-powered SOC analyst system that performs real-time threat detection using SNN, LNN, and XGBoost ensemble models with behavioral profiling, sandbox isolation, feedback-driven retraining, and full microservices architecture.',
+        icon: 'fas fa-shield-alt',
+        githubUrl: '#',
+        technologies: ["SNN", "LNN", "XGBoost", "Microservices", "Cybersecurity"],
+        color: '#ff3b5c',
+        categories: ["ai", "data"]
     },
     {
         id: 'githopper',
         name: 'GitHopper 🦘',
-        description: 'Engineered a high-performance, full-stack analytics system that delivers 10+ code quality metrics, automated technical debt quantification, and real-time repository intelligence across multi-branch GitHub workflows. Leveraged AI-driven synthesis (AWS Bedrock) to process and analyze thousands of lines of code. Built with a scalable architecture integrating React + Vite (frontend) and Flask + MCP runtime (backend).',
+        description: 'Intelligent Git repository analysis platform that performs deep code scanning, technical debt detection, health scoring, and real-time monitoring using MCP and AI-powered synthesis for actionable developer insights.',
         icon: 'fab fa-git-alt',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/GITHOPPER',
-        technologies: ['MCP', 'Amazon Bedrock', 'React', 'Flask', 'Code Analytics'],
+        technologies: ["MCP", "Amazon Bedrock", "React", "Flask", "Code Analytics"],
         color: '#00b894',
-        featured: true
+        categories: ["ai", "web"]
     },
     {
         id: 'llm-benchmark',
-        name: 'LLM Fight Club 🎮',
-        description: 'Built a microservice-based AI benchmarking system simulating real-time head-to-head LLM combat, evaluating 5+ reasoning metrics. Engineered parallel inference pipelines with latency-based execution (~30–40% faster response prioritization) and dynamic hyperparameter mutation for stress testing. Integrated custom model onboarding (Groq + Ollama) and a 2-engine architecture with live telemetry and avatar-driven UI.',
+        name: 'LLM Benchmark Game 🎮',
+        description: 'Interactive AI benchmark platform that compares multiple LLMs through real-time game-based challenges and reasoning tasks to evaluate model intelligence, speed, and accuracy.',
         icon: 'fas fa-gamepad',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/LLM_BENCHMARK_GAME',
-        technologies: ['LLM', 'LLMOps', 'Microservices', 'Low-Latency Processing', 'Groq'],
+        technologies: ["LLM", "LLMOps", "Microservices", "Groq"],
         color: '#6e40c9',
-        featured: true
-    },
-    {
-        id: 'reggraph-ai',
-        name: 'RegGraph AI 🕸️',
-        description: 'Autonomous compliance operating system for Indian SMBs that continuously monitors regulatory changes across GST, EPFO, FSSAI, and state portals, automatically identifying impacted businesses and updating compliance obligations in real time. Its Dual-Rail Architecture combines LLM-based reasoning with a deterministic rule engine, ensuring every AI decision is independently verified and escalated for human review.',
-        icon: 'fas fa-project-diagram',
-        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/RegGraph-AI',
-        technologies: ['Next.js', 'PostgreSQL', 'FastAPI', 'LangGraph', 'Chroma DB', 'NLP'],
-        color: '#fe428e',
-        featured: true
+        categories: ["ai", "web"]
     },
     {
         id: 'project-astraeus',
-        name: 'The Project Astraeus 🚀',
-        description: 'Architected a high-fidelity AI-driven mission control system leveraging GNN-augmented PPO reinforcement learning, trained over 100K+ episodic simulations to achieve +23.4% throughput optimization in dynamic satellite scheduling. Implemented a low-latency, event-driven distributed architecture with WebSocket-based telemetry and a GPU-accelerated 3D geospatial visualization stack (React + CesiumJS).',
+        name: 'PROJECT_ENTANGLEMENT 🚀',
+        description: 'SIH 2025: Project Astraeus — AI-powered Mission Control with digital twin simulation and predictive system monitoring.',
         icon: 'fas fa-satellite',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/PROJECT_ENTANGLEMENT',
-        technologies: ['GNN', 'Reinforcement Learning', 'CesiumJS', 'Digital Twin', 'PyTorch'],
+        technologies: ["GNN", "Reinforcement Learning", "CesiumJS", "Digital Twin", "PyTorch"],
         color: '#ff6600',
-        featured: true
-    },
-    {
-        id: 'vaaya',
-        name: 'VaaYa ✈️',
-        description: 'AI-Powered Gamified Tourism Platform built to enhance travel experiences by connecting users with local culture through real-time quests and AI verification. Engineered using a Flask-based REST architecture with MongoDB Atlas for low-latency queries. Implemented sub-second real-time systems via WebSockets and integrated computer vision pipelines (TensorFlow Lite + MobileNet + OpenCV) for AI-based quest validation.',
-        icon: 'fas fa-plane',
-        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/VAAYA-PROJECT',
-        technologies: ['MongoDB Atlas', 'OpenCV', 'MobileNet', 'RESTful API', 'TensorFlow Lite'],
-        color: '#00ccff',
-        featured: true
+        categories: ["ai", "data"]
     },
     {
         id: 'hackathon-dashboard',
-        name: 'Hackathon Dashboard 📊',
-        description: 'Full-Stack Hackathon Management System built to streamline hackathon tracking, team collaboration, and real-time notifications through a unified digital workspace. Developed a full-stack architecture using React 18 + Node.js/Express with MongoDB Atlas for scalable user and event data management. Engineered OTP-based authentication, real-time notification pipelines, and calendar-driven event systems.',
+        name: 'Hackathon-Dashboard 📊',
+        description: 'Real-time hackathon management dashboard for event tracking, analytics, and participant intelligence.',
         icon: 'fas fa-chart-bar',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/Hackathon-Dashboard',
-        technologies: ['React', 'Node.js', 'MongoDB', 'FullCalendar.js', 'Express'],
+        technologies: ["React", "Node.js", "MongoDB", "FullCalendar.js", "Express"],
         color: '#3178c6',
-        featured: false
+        categories: ["web"]
     },
     {
         id: 'novapulse',
-        name: 'Amazon Nova Pulse 🧠',
-        description: 'Multi-Agent Intelligence System built to orchestrate real-time, multi-source intelligence (news, social, research, vision) through a single query using autonomous agent collaboration. Architected a 9-agent MAS pipeline with LLM-driven DAG planning (Amazon Nova) and asynchronous execution. Engineered FastAPI backend integrating NLP (sentiment, NER), computer vision, and trend velocity algorithms.',
+        name: 'NovaPulse 🧠',
+        description: 'Voice-powered multi-agent news intelligence system using Amazon Nova AI for sentiment analysis, trend detection, and automated executive summaries.',
         icon: 'fas fa-brain',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/NovaPulse',
-        technologies: ['Multi-agent Systems', 'DAG', 'Amazon Nova', 'NER', 'asyncio', 'FastAPI'],
+        technologies: ["Multi-agent Systems", "DAG", "Amazon Nova", "NER", "asyncio", "FastAPI"],
         color: '#0099ff',
-        featured: false
+        categories: ["ai"]
+    },
+    {
+        id: 'clipbait',
+        name: 'Clipbait ✂️',
+        description: 'AI-powered smart clipboard system to capture, analyze, and understand copied content using ML & DL.',
+        icon: 'fas fa-clipboard',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/ClipBait',
+        technologies: ["Node.js", "HuggingFace", "PostgreSQL", "FastAPI", "WebSockets", "Tauri Rust", "React Native"],
+        color: '#ff3b5c',
+        categories: ["ai", "web"]
+    },
+    {
+        id: 'donorconnect',
+        name: 'DonorConnectT ❤️',
+        description: 'ML & DL based real-time blood donor-recipient intelligent matching and healthcare support system.',
+        icon: 'fas fa-hand-holding-heart',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/DonorConnectT',
+        technologies: ["Next.js", "Geospatial Querying", "RBAC", "JWT", "REST APIs", "WebSocket"],
+        color: '#f44336',
+        categories: ["ai", "web"]
+    },
+    {
+        id: 'kisaanmitra',
+        name: 'KisaanMitra 🌾',
+        description: 'Multi-Agent System for collective agricultural intelligence — climate insights, autonomous irrigation, market intelligence, and financial inclusion for farmers.',
+        icon: 'fas fa-tractor',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/KisaanMitra',
+        technologies: ["Redis", "MCP", "PostgreSQL", "TimescaleDB", "PostGIS", "TensorFlow", "Python"],
+        color: '#ffc107',
+        categories: ["ai", "data"]
+    },
+    {
+        id: 'vaaya',
+        name: 'VAAYA-PROJECT ✈️',
+        description: 'Smart travel platform blending Google Maps + Reels discovery + gamified exploration quests for travelers and local earners.',
+        icon: 'fas fa-plane',
+        githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/VAAYA-PROJECT',
+        technologies: ["MongoDB Atlas", "OpenCV", "MobileNet", "RESTful API", "TensorFlow Lite"],
+        color: '#00ccff',
+        categories: ["ai", "web"]
+    },
+    {
+        id: 'vootex',
+        name: 'VoOTEX 🎙️',
+        description: 'Voice-to-text transcription pipeline with speaker diarization, noise handling, and post-processing intelligence.',
+        icon: 'fas fa-microphone',
+        githubUrl: '#',
+        technologies: ["Speech-to-Text", "NLP", "Diarization"],
+        color: '#6e40c9',
+        categories: ["ai"]
+    },
+    {
+        id: 'x-forecast',
+        name: 'X-FORECAST 📈',
+        description: 'Advanced time-series forecasting models and dashboards for demand prediction, analytics, and trend intelligence.',
+        icon: 'fas fa-chart-line',
+        githubUrl: '#',
+        technologies: ["Time-Series", "Prophet", "ARIMA", "Data Analytics"],
+        color: '#00b894',
+        categories: ["data", "ai"]
+    },
+    {
+        id: 'finance-bud',
+        name: 'finance-bud 💰',
+        description: 'Intelligent personal finance manager with budgeting automation, expense analytics, and financial insights.',
+        icon: 'fas fa-wallet',
+        githubUrl: '#',
+        technologies: ["Data Analytics", "Automation", "Web Dev"],
+        color: '#ffc107',
+        categories: ["ai", "web"]
+    },
+    {
+        id: 'glamglow',
+        name: 'GlamGlow ✨',
+        description: 'ML-powered beauty product recommendation engine for personalized skincare and product discovery.',
+        icon: 'fas fa-sparkles',
+        githubUrl: '#',
+        technologies: ["Recommendation Systems", "ML", "Data Mining"],
+        color: '#fe428e',
+        categories: ["ai", "data"]
+    },
+    {
+        id: 'healthcare-dashboard',
+        name: 'HealthCare-System-Dashboard 🏥',
+        description: 'Real-time healthcare analytics dashboard powered by ML-driven insights and monitoring pipelines.',
+        icon: 'fas fa-heartbeat',
+        githubUrl: '#',
+        technologies: ["Analytics", "Dashboard", "ML"],
+        color: '#3178c6',
+        categories: ["data", "web"]
+    },
+    {
+        id: 'neuracity',
+        name: 'NEURACITY 🏙️',
+        description: 'Neural/ML toolkit for city modelling and visualization — traffic optimization, zoning intelligence, and urban simulation.',
+        icon: 'fas fa-city',
+        githubUrl: '#',
+        technologies: ["Urban Simulation", "ML", "Visualization"],
+        color: '#0099ff',
+        categories: ["ai", "data"]
     }
 ];
 
@@ -173,14 +243,18 @@ const projectsConfig = {
 };
 
 // Function to create project card HTML and insert into DOM
-function generateProjectCards() {
+function generateProjectCards(filterCategory = 'all') {
     const grid = document.getElementById('projects-grid');
     if (!grid) return;
 
     // Clear existing
     grid.innerHTML = '';
 
-    projectsData.forEach((p, idx) => {
+    const filteredProjects = filterCategory === 'all' 
+        ? projectsData 
+        : projectsData.filter(p => p.categories && p.categories.includes(filterCategory));
+
+    filteredProjects.forEach((p, idx) => {
         const card = document.createElement('a');
         card.className = 'project-card';
         card.setAttribute('role', 'listitem');
@@ -203,7 +277,6 @@ function generateProjectCards() {
                     <div class="project-icon"><i class="${p.icon}" aria-hidden="true"></i></div>
                     <h4 class="project-name">${p.name}</h4>
                 </div>
-                <div class="project-date" aria-label="${p.featured ? 'Featured project' : 'Regular project'}">${p.featured ? 'Featured' : ''}</div>
             </div>
             <div class="project-content">
                 <p class="project-description">${p.description}</p>
@@ -2921,6 +2994,19 @@ function initCarousels() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initCarousels();
+    
+    // Project filtering logic
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    if (filterBtns.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                generateProjectCards(filter);
+            });
+        });
+    }
 });
 
 console.log('🎯 Script loaded successfully!');

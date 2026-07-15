@@ -1451,7 +1451,7 @@
         <div class="hero-content">
             <h1 class="hero-title" style="position: relative; display: inline-block;">MUKUL PRASAD</h1>
 
-            <div class="ai-terminal" style="text-align: left; margin: 0 auto;">
+            <div class="ai-terminal" style="text-align: left; margin: 0 auto; width: max-content; min-width: 300px; max-width: 95vw; transition: width 0.1s;">
                 <div class="terminal-header">
                     <div class="terminal-buttons">
                         <div class="terminal-btn red"></div>
@@ -1460,7 +1460,7 @@
                     </div>
                     <div class="terminal-title">mukul@neural-nexus:~$</div>
                 </div>
-                <div class="terminal-body" id="dynamic-terminal" style="text-align: left; font-size: 1.1rem; line-height: 2;">
+                <div class="terminal-body" id="dynamic-terminal" style="text-align: left; font-size: 1.1rem; line-height: 2; height: 380px; overflow-y: hidden; overflow-x: auto; white-space: nowrap;">
                     <!-- Content will be injected dynamically via JS -->
                 </div>
             </div>
@@ -1477,8 +1477,29 @@
                     
                     let htmlContent = '';
                     let i = 0;
+                    let typeInterval;
+                    let nextTimeout;
+                    let skipped = false;
+                    
+                    function finishAll() {
+                        if (skipped) return;
+                        skipped = true;
+                        clearInterval(typeInterval);
+                        clearTimeout(nextTimeout);
+                        let fullHtml = '';
+                        for (let j = 0; j < commands.length; j++) {
+                            fullHtml += `<div><span class="prompt">$</span> ${commands[j].cmd}</div><div>${commands[j].out}</div>`;
+                        }
+                        terminal.innerHTML = fullHtml + '<div><span class="prompt">$</span> <span class="typing-cursor" style="animation: blink 1s step-end infinite;">_</span></div>';
+                    }
+
+                    document.body.addEventListener('click', finishAll, { once: true });
+                    document.body.addEventListener('wheel', finishAll, { once: true });
+                    document.body.addEventListener('touchstart', finishAll, { once: true });
+                    document.body.addEventListener('keydown', finishAll, { once: true });
                     
                     function typeCommand() {
+                        if (skipped) return;
                         if (i >= commands.length) {
                             terminal.innerHTML = htmlContent + '<div><span class="prompt">$</span> <span class="typing-cursor" style="animation: blink 1s step-end infinite;">_</span></div>';
                             return;
@@ -1491,24 +1512,26 @@
                         terminal.innerHTML = htmlContent + '<div><span class="prompt">$</span> <span id="current-cmd"></span><span class="typing-cursor" style="animation: blink 1s step-end infinite;">_</span></div>';
                         const currentCmdSpan = document.getElementById('current-cmd');
                         
-                        const typeInterval = setInterval(() => {
+                        typeInterval = setInterval(() => {
+                            if (skipped) return;
                             cmdText += current.cmd[charIndex];
                             currentCmdSpan.textContent = cmdText;
                             charIndex++;
                             
                             if (charIndex === current.cmd.length) {
                                 clearInterval(typeInterval);
-                                setTimeout(() => {
+                                nextTimeout = setTimeout(() => {
+                                    if (skipped) return;
                                     htmlContent += `<div><span class="prompt">$</span> ${current.cmd}</div><div>${current.out}</div>`;
                                     terminal.innerHTML = htmlContent;
                                     i++;
-                                    setTimeout(typeCommand, 600);
+                                    nextTimeout = setTimeout(typeCommand, 600);
                                 }, 400);
                             }
                         }, 50);
                     }
                     
-                    setTimeout(typeCommand, 1000);
+                    nextTimeout = setTimeout(typeCommand, 1000);
                     
                     if (!document.getElementById('blink-style')) {
                         const style = document.createElement('style');
@@ -2091,7 +2114,6 @@
                         <div class="project-icon" style="color: #ff6600; border-color: #ff6600;"><i class="fas fa-satellite" aria-hidden="true"></i></div>
                         <h4 class="project-name" style="color: #ff6600; text-shadow: 0 0 10px #ff6600;">Project Astraeus</h4>
                     </div>
-                    <div class="project-date">Live Deployment</div>
                 </div>
                 <div class="project-content">
                     <p class="project-description">AI-powered Mission Control with digital-twin simulation, real-time monitoring & intelligent decision support.</p>
@@ -2108,7 +2130,6 @@
                         <div class="project-icon" style="color: #f44336; border-color: #f44336;"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i></div>
                         <h4 class="project-name" style="color: #f44336; text-shadow: 0 0 10px #f44336;">DonorConnect</h4>
                     </div>
-                    <div class="project-date">Live Deployment</div>
                 </div>
                 <div class="project-content">
                     <p class="project-description">ML & DL powered real-time blood donor-recipient intelligent matching platform.</p>
@@ -2125,7 +2146,6 @@
                         <div class="project-icon" style="color: #0099ff; border-color: #0099ff;"><i class="fas fa-brain" aria-hidden="true"></i></div>
                         <h4 class="project-name" style="color: #0099ff; text-shadow: 0 0 10px #0099ff;">Amazon Nova Pulse</h4>
                     </div>
-                    <div class="project-date">Live Deployment</div>
                 </div>
                 <div class="project-content">
                     <p class="project-description">Voice-powered multi-agent news intelligence system using Amazon Nova AI.</p>
@@ -2142,7 +2162,6 @@
                         <div class="project-icon" style="color: #ff00ff; border-color: #ff00ff;"><i class="fas fa-user-astronaut" aria-hidden="true"></i></div>
                         <h4 class="project-name" style="color: #ff00ff; text-shadow: 0 0 10px #ff00ff;">Portfolio Website</h4>
                     </div>
-                    <div class="project-date">Live Deployment</div>
                 </div>
                 <div class="project-content">
                     <p class="project-description">Personal portfolio showcasing AI, ML, and full-stack development projects & research work.</p>
@@ -2159,7 +2178,6 @@
                         <div class="project-icon" style="color: #3178c6; border-color: #3178c6;"><i class="fas fa-chart-bar" aria-hidden="true"></i></div>
                         <h4 class="project-name" style="color: #3178c6; text-shadow: 0 0 10px #3178c6;">Hackathon Dashboard</h4>
                     </div>
-                    <div class="project-date">Live Deployment</div>
                 </div>
                 <div class="project-content">
                     <p class="project-description">Real-time hackathon tracking, participant analysis & event management platform.</p>
@@ -2286,7 +2304,7 @@
                 </div>
                 <div class="project-content">
                     <h4 class="project-name" style="color: #fe428e; margin-bottom: 0.5rem; text-shadow: 0 0 10px #fe428e; font-size: 1.5rem;">RegGraph-AI</h4>
-                    <p class="project-description">AI-powered regulatory knowledge graph system for intelligent compliance mapping and automated regulation analysis.</p>
+                    <p class="project-description">AI Regulatory Knowledge Graph for compliance mapping & automated legal document analysis.</p>
                 </div>
             </a>
         </div>
