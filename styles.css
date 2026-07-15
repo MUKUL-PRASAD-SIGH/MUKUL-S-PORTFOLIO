@@ -824,6 +824,78 @@ section {
     text-align: center;
 }
 
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.about-text {
+    text-align: left;
+}
+
+.about-text h3 {
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.about-text h3:first-child {
+    margin-top: 0;
+}
+
+.about-text p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 2rem 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0, 255, 0, 0.1);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 /* Experience Section */
 .projects-grid {
     display: flex;
@@ -2972,8 +3044,30 @@ footer {
         right: 5px;
     }
 }
-@media (max-width: 768px) {
-    .scroll-btn {
-        display: none; /* Rely on native swipe on mobile */
+    @media (max-width: 768px) {
+        .scroll-btn {
+            display: none; /* Rely on native swipe on mobile */
+        }
     }
-}
+    
+    /* Video Card Hover Effects */
+    .video-card:hover .video-thumbnail-container img,
+    .video-card:focus .video-thumbnail-container img {
+        transform: scale(1.1);
+    }
+    
+    .video-card:hover .play-btn-overlay,
+    .video-card:focus .play-btn-overlay {
+        background: rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .video-card:hover .play-btn-overlay i,
+    .video-card:focus .play-btn-overlay i {
+        transform: scale(1.2);
+        transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    
+    .video-card .play-btn-overlay i {
+        transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    
