@@ -121,35 +121,49 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 0.5rem;
+            gap: 0.8rem;
             align-items: center;
         }
         
         .nav-links a {
-            color: rgba(255, 255, 255, 0.75);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.6rem 1.2rem;
+            border-radius: 12px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-            padding: 0.6rem 1.2rem;
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: transparent;
-            border: 1px solid transparent;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: inset 0 0 0 rgba(255, 255, 255, 0);
+        }
+        
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(0, 204, 255, 0.4), transparent);
+            transition: all 0.6s ease;
+            z-index: -1;
         }
         
         .nav-links a:hover, .nav-links a:active, .nav-links a:focus {
             color: #ffffff;
             background: rgba(0, 153, 255, 0.15);
-            border: 1px solid rgba(0, 204, 255, 0.4);
-            box-shadow: 0 0 20px rgba(0, 153, 255, 0.2), inset 0 0 15px rgba(0, 204, 255, 0.1);
-            transform: translateY(-2px) scale(1.05);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            border-color: rgba(0, 204, 255, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 153, 255, 0.3), inset 0 0 15px rgba(0, 204, 255, 0.2);
+            transform: translateY(-3px) scale(1.05);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
             outline: none;
+        }
+        
+        .nav-links a:hover::before {
+            left: 100%;
         }
         
         .nav-links a::after {
@@ -157,20 +171,19 @@
             position: absolute;
             bottom: 0;
             left: 50%;
-            width: 30%;
+            width: 0%;
             height: 2px;
             background: linear-gradient(90deg, transparent, #00ccff, transparent);
             transition: all 0.4s ease;
-            transform: translateX(-50%) translateY(10px);
+            transform: translateX(-50%);
             opacity: 0;
             border-radius: 2px;
         }
         
         .nav-links a:hover::after, .nav-links a:active::after {
-            transform: translateX(-50%) translateY(0);
             opacity: 1;
-            width: 60%;
-            box-shadow: 0 0 10px #00ccff;
+            width: 70%;
+            box-shadow: 0 0 15px #00ccff;
         }
         
         /* Hero Section */
@@ -190,6 +203,9 @@
             max-width: 1000px;
             width: 95%;
             padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .hero-terminal {
@@ -1877,9 +1893,9 @@
                 </div>
             </div>
             
-            <div class="achievement-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.3">
+            <div class="achievement-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.3" style="grid-column: span 2; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between;">
                 <div class="achievement-card-glow"></div>
-                <div class="achievement-content">
+                <div class="achievement-content" style="flex: 1; min-width: 300px;">
                     <div class="achievement-icon">🏆</div>
                     <div class="achievement-info">
                         <h4>Hackathons (Wins & Merits)</h4>
@@ -1890,11 +1906,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-
-            <div class="achievement-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.3">
-                <div class="achievement-card-glow"></div>
-                <div class="achievement-content">
+                <div class="achievement-content" style="flex: 1; min-width: 300px; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1.5rem;">
                     <div class="achievement-icon">🚀</div>
                     <div class="achievement-info">
                         <h4>Hackathons (Finalists)</h4>
@@ -2045,9 +2057,9 @@
                     <span class="skill-tag interactive-skill">Tauri Rust <i class="fas fa-info-circle" style="font-size: 0.85em; opacity: 0.8; margin-left: 4px;"></i><span class="skill-tooltip"><span class="tooltip-title">Used in:</span>ClipBait</span></span>
                     <span class="skill-tag interactive-skill">CesiumJS <i class="fas fa-info-circle" style="font-size: 0.85em; opacity: 0.8; margin-left: 4px;"></i><span class="skill-tooltip"><span class="tooltip-title">Used in:</span>Project Astraeus</span></span>
                     <span class="skill-tag interactive-skill">asyncio <i class="fas fa-info-circle" style="font-size: 0.85em; opacity: 0.8; margin-left: 4px;"></i><span class="skill-tooltip"><span class="tooltip-title">Used in:</span>Amazon Nova Pulse</span></span>
-                    <span class="skill-tag interactive-skill">C++ <i class="fas fa-info-circle" style="font-size: 0.85em; opacity: 0.8; margin-left: 4px;"></i><span class="skill-tooltip"><span class="tooltip-title">Status:</span>Academic/Theoretical Knowledge</span></span>
+                    <span class="skill-tag interactive-skill">C++ <i class="fas fa-info-circle" style="font-size: 0.85em; opacity: 0.8; margin-left: 4px;"></i><span class="skill-tooltip"><span class="tooltip-title">Used in:</span>DSA, Competitive Programming</span></span>
                     <span class="skill-tag interactive-skill">Java <i class="fas fa-info-circle" style="font-size: 0.85em; opacity: 0.8; margin-left: 4px;"></i><span class="skill-tooltip"><span class="tooltip-title">Status:</span>Academic/Theoretical Knowledge</span></span>
-                    <span class="skill-tag interactive-skill">TypeScript <i class="fas fa-info-circle" style="font-size: 0.85em; opacity: 0.8; margin-left: 4px;"></i><span class="skill-tooltip"><span class="tooltip-title">Status:</span>Academic/Theoretical Knowledge</span></span>
+                    <span class="skill-tag interactive-skill">TypeScript <i class="fas fa-info-circle" style="font-size: 0.85em; opacity: 0.8; margin-left: 4px;"></i><span class="skill-tooltip"><span class="tooltip-title">Used in:</span>Numerous Projects</span></span>
                 </div>
             </div>
 
@@ -2072,7 +2084,7 @@
                     <span class="skill-tag interactive-skill">Reinforcement Learning <i class="fas fa-info-circle" style="font-size: 0.85em; opacity: 0.8; margin-left: 4px;"></i><span class="skill-tooltip"><span class="tooltip-title">Used in:</span>Project Astraeus</span></span>
                     <span class="skill-tag interactive-skill">Computer Vision (OpenCV) <i class="fas fa-info-circle" style="font-size: 0.85em; opacity: 0.8; margin-left: 4px;"></i><span class="skill-tooltip"><span class="tooltip-title">Used in:</span>VaaYa</span></span>
                     <span class="skill-tag interactive-skill">NLP (NER) <i class="fas fa-info-circle" style="font-size: 0.85em; opacity: 0.8; margin-left: 4px;"></i><span class="skill-tooltip"><span class="tooltip-title">Used in:</span>Amazon Nova Pulse</span></span>
-                    <span class="skill-tag interactive-skill">Scikit-learn <i class="fas fa-info-circle" style="font-size: 0.85em; opacity: 0.8; margin-left: 4px;"></i><span class="skill-tooltip"><span class="tooltip-title">Status:</span>Academic/Theoretical Knowledge</span></span>
+                    <span class="skill-tag interactive-skill">Scikit-learn <i class="fas fa-info-circle" style="font-size: 0.85em; opacity: 0.8; margin-left: 4px;"></i><span class="skill-tooltip"><span class="tooltip-title">Used in:</span>Various Projects</span></span>
                 </div>
             </div>
             

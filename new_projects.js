@@ -5,7 +5,7 @@ const projectsData = [
         description: 'AI-powered regulatory knowledge graph system for intelligent compliance mapping, automated regulation analysis, and graph-based reasoning over legal and policy documents.',
         icon: 'fas fa-project-diagram',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/RegGraph-AI',
-        technologies: ["Next.js", "PostgreSQL", "FastAPI", "LangGraph", "Chroma DB", "NLP"],
+        technologies: ["Next.js", "PostgreSQL", "FastAPI", "LangGraph", "Docker", "CI/CD"],
         color: '#fe428e',
         categories: ["ai"]
     },
@@ -25,7 +25,7 @@ const projectsData = [
         description: 'AI-powered SOC analyst system that performs real-time threat detection using SNN, LNN, and XGBoost ensemble models with behavioral profiling, sandbox isolation, feedback-driven retraining, and full microservices architecture.',
         icon: 'fas fa-shield-alt',
         githubUrl: '#',
-        technologies: ["SNN", "LNN", "XGBoost", "Microservices", "Cybersecurity"],
+        technologies: ["SNN", "LNN", "XGBoost", "Microservices", "Docker", "CI/CD"],
         color: '#ff3b5c',
         categories: ["ai", "data"]
     },
@@ -35,7 +35,7 @@ const projectsData = [
         description: 'Intelligent Git repository analysis platform that performs deep code scanning, technical debt detection, health scoring, and real-time monitoring using MCP and AI-powered synthesis for actionable developer insights.',
         icon: 'fab fa-git-alt',
         githubUrl: 'https://github.com/MUKUL-PRASAD-SIGH/GITHOPPER',
-        technologies: ["MCP", "Amazon Bedrock", "React", "Flask", "Code Analytics"],
+        technologies: ["MCP", "Amazon Bedrock", "React", "Flask", "Docker", "CI/CD"],
         color: '#00b894',
         categories: ["ai", "web"]
     },
